@@ -1,2 +1,2 @@
 # SDK
-Project Ginsberg SDK and example app
+Ginsberg.io SDK and example app
