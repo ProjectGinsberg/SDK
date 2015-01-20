@@ -115,7 +115,16 @@ Getting users data from the system is done via single calls the the SDK, which, 
  *  **Int ID -** If using range of "ID", this is the id of the particular entry to get
 
     ```obj-c
+    //Obj-c
+    [[GAPI Instance] GetActivity:@"All" typeFrom:@"Yesterday" dateFrom:nil typeTo:@"Yesterday" dateTo:nil ID:ID];
+    ```
+    ```swift
+    //Swift
     GAPI.Instance().GetActivity("All",typeFrom:"Yesterday",dateFrom:nil,typeTo:"Yesterday",dateTo:nil,ID:Int(ID));
+    ```
+    ```java
+    //Java
+    GAPI.Instance().GetActivity("All", "Yesterday", null, "Yesterday", null, ID);
     ```
 
 The calls are get the required data are as follows:
