@@ -38,14 +38,10 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 
 ## Credentials
 
-Your mobile integration requires different `client_id` and `client_secret` values for each application.
-
-https://platform.ginsberg.io/app
-Reg as dev
-You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app/register) and logging in with your Ginsberg account.
+Your mobile integration requires different `client_id` and `client_secret` values for each application. You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app) and logging in with your Ginsberg account. Register as a developer, if not done already, and select new app. The page will then show you the client_id and client_secret strings to embed into your application.
 
 ##Implementation Overview
-To setup getting data in and out of Project Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the GAPIProtocol interface and pass an instance off it to the SDK.
+To setup getting data in and out of Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the GAPIProtocol interface and pass an instance off it to the SDK.
 
 ###Signup
 
