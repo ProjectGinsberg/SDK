@@ -1,2 +1,111 @@
-# SDK
-Ginsberg.io SDK and example app
+Ginsberg.io Mobile SDK and Example Apps
+=======================================
+
+The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps.
+
+![SDK screenshots](docs/sdk-screens.png)
+
+## Contents
+
+- [Requirements](#requirements)
+- [Add the SDK to Your Project](#add-the-sdk-to-your-project)
+- [Credentials](#credentials)
+- [Implementation Overview](#implementation-overview)
+- [Signup](#signup)
+- [Login](#login)
+- [Get Data](#get-data)
+- [Post Data](#post-data)
+- [Delete Data](#delete-data)
+- [Connections](#connections)
+- [Example App](#example-app) 
+
+## Requirements
+
+### iOS
+* Xcode 6 and iOS SDK 8
+* iOS 6.0+ target deployment
+* armv7, armv7s, and arm64 devices, and the simulator (not armv6)
+* iPhone and iPad of all sizes and resolutions
+
+### Android
+* Android 2.2 or later
+* Phone or tablet
+
+## Add the SDK to Your Project
+### iOS
+1. Clone or download the SDK, which consists of header files, release notes, and a static library. It also includes an example app.
+2. Add the `libs/iOS` directory (containing GAPI.h and libGAPI.a) to your Xcode project.
+
+## Credentials
+
+Your mobile integration requires different `client_id` and `client_secret` values for each application.
+
+https://platform.ginsberg.io/app
+Reg as dev
+You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app/register) and logging in with your Ginsberg account.
+
+##Implementation Overview
+To setup getting data in and out of Project Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the GAPIProtocol interface and pass an instance off it to the SDK.
+
+###Signup
+
+1. Signup can either be done via a popover webview, else via a single api call. For the popover webview call the `SignUpWeb` method as below. For the single api call call the `SignUp` method as below, with something for a first name, last name, password, confirmation of password, email address, country code, and selected wellbeing questions. Only passwords and email address are required to be valid, as shown in the example, to reduce initial signup time. The other data can be updated at a later stage once the user is logged in. 
+
+    ```obj-c
+    //Obj-c
+    GAPI.Instance()!.SignUpWeb();
+    ```
+    ```obj-c
+    //Obj-c
+    GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance()!.SignUpWeb();
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
+    ```
+    
+###Login
+
+1. Call the setup method with the a valid client id, client secret and GAPIProtocol instance. 
+
+    ```obj-c
+    //Obj-c
+    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+    ```
+
+    ```swift
+    //Swift
+    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+    ```
+2. If the system alreasy has a valid user login GAPIProtocols `GainedAccess` will be called from which point you can start getting/posting data. If there is not a valid login GAPIProtocols `NeedLogin` will be called instead.
+3. If login is required. call the login method to run the login procedure. Once a valid login process has finished, `GainedAccess` will be called as in the previous step.
+
+    ```obj-c
+    //Obj-c
+    GAPI.Instance()!.Login();
+    ```
+
+    ```swift
+    //Swift
+    GAPI.Instance()!.Login();
+    ```
+    
+###Get Data
+###Post Data
+###Delete Data
+###Connections
+
+##Example App
+
+To show the sdk in practice, the repository contains an example app in the **ExampleApp** folder. It is broken down into the following views
+* **VCLogin -** Login process 
+* **VCSignup -** Custom signup process, without webview
+* **VCPost -** Get/Post/Delete calls of users data
+* **VCProfile -** Update users profile info such as name, phone number, etc
+* **VCConnetions -** Show the web view connections page for 3rd party data
+* **VCCharts -** IN DEVELOPMENT - Test of showing data via cross platform chart system (in js)
+

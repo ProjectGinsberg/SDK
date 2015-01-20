@@ -31,9 +31,6 @@
 		8399304F1A66BD6D00AE24C2 /* nv.d3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 839930491A66BD6D00AE24C2 /* nv.d3.min.js */; };
 		839930521A66BDD500AE24C2 /* VCCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839930511A66BDD500AE24C2 /* VCCharts.swift */; };
 		83C5F8511A5D48F500AA4B58 /* VCConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C5F8501A5D48F500AA4B58 /* VCConnections.swift */; };
-		83FDAB681A5C00E200FE035F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDAB671A5C00E200FE035F /* CoreData.framework */; };
-		83FDAB6A1A5C00F200FE035F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDAB691A5C00F200FE035F /* Foundation.framework */; };
-		83FDAB6C1A5C010F00FE035F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDAB6B1A5C010F00FE035F /* libsqlite3.dylib */; };
 		83FDAB6E1A5C011800FE035F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FDAB6D1A5C011800FE035F /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,9 +74,6 @@
 		839930491A66BD6D00AE24C2 /* nv.d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = nv.d3.min.js; sourceTree = "<group>"; };
 		839930511A66BDD500AE24C2 /* VCCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCCharts.swift; sourceTree = "<group>"; };
 		83C5F8501A5D48F500AA4B58 /* VCConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCConnections.swift; sourceTree = "<group>"; };
-		83FDAB671A5C00E200FE035F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		83FDAB691A5C00F200FE035F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		83FDAB6B1A5C010F00FE035F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		83FDAB6D1A5C011800FE035F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -90,9 +84,6 @@
 			files = (
 				83537A0E1A6D8CF3003E108A /* libGAPI.a in Frameworks */,
 				83FDAB6E1A5C011800FE035F /* UIKit.framework in Frameworks */,
-				83FDAB6C1A5C010F00FE035F /* libsqlite3.dylib in Frameworks */,
-				83FDAB6A1A5C00F200FE035F /* Foundation.framework in Frameworks */,
-				83FDAB681A5C00E200FE035F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,9 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				83FDAB6D1A5C011800FE035F /* UIKit.framework */,
-				83FDAB6B1A5C010F00FE035F /* libsqlite3.dylib */,
-				83FDAB691A5C00F200FE035F /* Foundation.framework */,
-				83FDAB671A5C00E200FE035F /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
