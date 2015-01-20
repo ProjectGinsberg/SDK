@@ -123,7 +123,7 @@ Getting users data from the system is done via single calls the the SDK, which, 
     GAPI.Instance().GetActivity("All",typeFrom:"Yesterday",dateFrom:nil,typeTo:"Yesterday",dateTo:nil,ID:Int(ID));
     ```
     ```java
-    //Java
+    //Android
     GAPI.Instance().GetActivity("All", "Yesterday", null, "Yesterday", null, ID);
     ```
 
@@ -132,12 +132,15 @@ The calls are get the required data are as follows:
 
     ```obj-c
     //Obj-c
-    GAPI.Instance().GetActivity(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID));
+    [[GAPI Instance] GetActivity:range typeFrom:typeFrom dateFrom:dateFrom typeTo:typeTo dateTo:dateTo ID:ID];
     ```
-
     ```swift
     //Swift
-    GAPI.Instance().GetActivity(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID));
+    GAPI.Instance().GetActivity(range, typeFrom:typeFrom, dateFrom:dateFrom, typeTo:typeTo, dateTo:dateTo, ID:Int(ID));
+    ```
+    ```java
+    //Android
+    GAPI.Instance().GetActivity(range, typeFrom, dateFrom, typeTo, dateTo, ID);
     ```
     
 ###Post Data
@@ -147,10 +150,10 @@ The calls are get the required data are as follows:
 ##Example App
 
 To show the sdk in practice, the repository contains an example app in the **ExampleApp** folder. It is broken down into the following views
-* **VCLogin -** Login process 
-* **VCSignup -** Custom signup process, without webview
-* **VCPost -** Get/Post/Delete calls of users data
-* **VCProfile -** Update users profile info such as name, phone number, etc
-* **VCConnetions -** Show the web view connections page for 3rd party data
-* **VCCharts -** IN DEVELOPMENT - Test of showing data via cross platform chart system (in js)
+* **Login -** Login process 
+* **Signup -** Custom signup process, without webview
+* **Post -** Get/Post/Delete calls of users data
+* **Profile -** Update users profile info such as name, phone number, etc
+* **Connetions -** Show the web view connections page for 3rd party data
+* **Charts -** IN DEVELOPMENT - Test of showing data via cross platform chart system (in js)
 
