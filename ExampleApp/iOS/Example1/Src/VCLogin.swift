@@ -76,7 +76,7 @@ class VCLogin: UIViewController, GAPIProtocol
     
     @IBAction func pressedSignupWeb(sender: UIButton)
     {
-        //Start web signin popover
+        //Start web signup popover
         GAPI.Instance()!.SignUpWeb();
     }
     
