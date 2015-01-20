@@ -436,14 +436,14 @@ class VCPost: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
             case "Caffeine":      GAPI.Instance().GetCaffeine(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Events":        GAPI.Instance().GetEvent(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Exercise":      GAPI.Instance().GetExercise(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
-            case "Measures":      GAPI.Instance().GetMeasures(Int(ID)); break;
+            //case "Measures":      GAPI.Instance().GetMeasures(Int(ID)); break;
             case "Notifications": GAPI.Instance().GetNotifications(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Nutrition":     GAPI.Instance().GetNutrition(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Sleep":         GAPI.Instance().GetSleep(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Smoking":       GAPI.Instance().GetSmoking(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Social":        GAPI.Instance().GetSocial(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Stepcount":     GAPI.Instance().GetStepcount(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
-            case "Survey":        GAPI.Instance().GetSurvey(); break;
+            //case "Survey":        GAPI.Instance().GetSurvey(); break;
             case "Wellbeing":     GAPI.Instance().GetWellbeing(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Mood":          GAPI.Instance().GetMood(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;
             case "Happy":         GAPI.Instance().GetHappy(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID)); break;

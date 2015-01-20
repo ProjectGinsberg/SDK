@@ -14,7 +14,7 @@
 		832E623F197ED68500B8C95E /* 120 - iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832E623B197ED68500B8C95E /* 120 - iPhone@2x.png */; };
 		832E6240197ED68500B8C95E /* 152 - iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 832E623C197ED68500B8C95E /* 152 - iPad.png */; };
 		832E6241197ED68500B8C95E /* 152 - iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832E623D197ED68500B8C95E /* 152 - iPad@2x.png */; };
-		83537A041A6D7A5C003E108A /* libGAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83537A031A6D7A5C003E108A /* libGAPI.a */; };
+		83537A0E1A6D8CF3003E108A /* libGAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83537A0D1A6D8CF3003E108A /* libGAPI.a */; };
 		836025CB1A5AF8F6003F0469 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836025C91A5AF8F6003F0469 /* iPhone.storyboard */; };
 		836025D41A5AF945003F0469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836025D11A5AF945003F0469 /* AppDelegate.swift */; };
 		836025D51A5AF945003F0469 /* VCPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836025D31A5AF945003F0469 /* VCPost.swift */; };
@@ -59,7 +59,7 @@
 		832E623C197ED68500B8C95E /* 152 - iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "152 - iPad.png"; sourceTree = "<group>"; };
 		832E623D197ED68500B8C95E /* 152 - iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "152 - iPad@2x.png"; sourceTree = "<group>"; };
 		835379FF1A6D7659003E108A /* GAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAPI.h; sourceTree = "<group>"; };
-		83537A031A6D7A5C003E108A /* libGAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGAPI.a; path = Libs/libGAPI.a; sourceTree = "<group>"; };
+		83537A0D1A6D8CF3003E108A /* libGAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGAPI.a; path = Example1/Libs/libGAPI.a; sourceTree = "<group>"; };
 		836025CA1A5AF8F6003F0469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = iPhone.storyboard; sourceTree = "<group>"; };
 		836025D11A5AF945003F0469 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		836025D21A5AF945003F0469 /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83537A041A6D7A5C003E108A /* libGAPI.a in Frameworks */,
+				83537A0E1A6D8CF3003E108A /* libGAPI.a in Frameworks */,
 				83FDAB6E1A5C011800FE035F /* UIKit.framework in Frameworks */,
 				83FDAB6C1A5C010F00FE035F /* libsqlite3.dylib in Frameworks */,
 				83FDAB6A1A5C00F200FE035F /* Foundation.framework in Frameworks */,
@@ -118,6 +118,7 @@
 		831BBCED197E9B7000FB041B = {
 			isa = PBXGroup;
 			children = (
+				83537A0D1A6D8CF3003E108A /* libGAPI.a */,
 				831BBCF8197E9B7000FB041B /* Example1 */,
 				831BBCF7197E9B7000FB041B /* Products */,
 			);
@@ -189,7 +190,6 @@
 		836025CC1A5AF91E003F0469 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				83537A031A6D7A5C003E108A /* libGAPI.a */,
 				83FDAB6D1A5C011800FE035F /* UIKit.framework */,
 				83FDAB6B1A5C010F00FE035F /* libsqlite3.dylib */,
 				83FDAB691A5C00F200FE035F /* Foundation.framework */,
@@ -474,10 +474,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Resources/Programming/Ginsberg/mobile/API/IOS/GAPI/GAPI/build/Debug-iphoneos",
-					"/Resources/Programming/Ginsberg/mobile/API/IOS/GAPI/DerivedData/GAPI/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/Example1",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GAPI-csqvsxobincqlegxvxwaagkjzrhx/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/Example1/Libs",
 				);
 				PRODUCT_NAME = ginsbergexample1;
@@ -505,10 +501,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Resources/Programming/Ginsberg/mobile/API/IOS/GAPI/GAPI/build/Debug-iphoneos",
-					"/Resources/Programming/Ginsberg/mobile/API/IOS/GAPI/DerivedData/GAPI/Build/Products/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/Example1",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GAPI-csqvsxobincqlegxvxwaagkjzrhx/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/Example1/Libs",
 				);
 				PRODUCT_NAME = ginsbergexample1;
