@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="GAPI-">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/exampleapp1/build/intermediates/exploded-aar/com.ginsberg.api.GAPI/GAPI/res" />
+      <root url="jar://$PROJECT_DIR$/exampleapp1/build/intermediates/exploded-aar/com.ginsberg.api.GAPI/GAPI/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

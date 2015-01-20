@@ -1,0 +1,818 @@
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="380dp"
+    android:id="@+id/tlMain">
+
+    <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="198dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="198dp"
+            android:id="@+id/etConsole"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Output"
+            android:editable="false"
+            android:minHeight="200dp"
+            android:inputType="none"
+            android:enabled="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:nextFocusUp="@id/etConsole" android:nextFocusLeft="@id/etConsole"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Clear"
+            android:id="@+id/button2"
+            android:textSize="14dp"
+            android:layout_gravity="bottom|right"
+            android:onClick="onClearComments"
+            android:layout_margin="3dp"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/llMain"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff79ff3b">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Type"
+                android:id="@+id/textView"
+                android:layout_gravity="left" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:id="@+id/spinner"
+                android:layout_gravity="right|top"
+                android:entries="@array/type_arrays"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="130dp"
+            android:background="#ffb6ffa5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From"
+                android:id="@+id/textView6"
+                android:layout_gravity="left|center_vertical"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:id="@+id/textView5"
+                android:layout_gravity="left|bottom"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get Period"
+                android:id="@+id/textView4"
+                android:layout_gravity="top|left"
+                android:textSize="16dp" />
+
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:id="@+id/snGetPeriod"
+                android:layout_gravity="top|center_horizontal"
+                android:entries="@array/period_arrays"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/etID"
+                android:layout_gravity="top|right"
+                android:text="1234"
+                android:textAlignment="textEnd"
+                android:numeric="integer"
+                android:inputType="number"/>
+
+            <Spinner
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:id="@+id/snFromType"
+                android:layout_gravity="center"
+                android:entries="@array/period_time_arrays"/>
+
+            <Spinner
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:id="@+id/snToType"
+                android:layout_gravity="bottom|center_horizontal"
+                android:entries="@array/period_time_arrays"/>
+
+            <EditText
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/etFromDate"
+                android:layout_gravity="right|center_vertical" />
+
+            <EditText
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/etToDate"
+                android:layout_gravity="right|bottom" />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:id="@+id/scrollView"
+            android:background="#ff2cff90">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/llItems">
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flDateTime">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Date/Time"
+                        android:id="@+id/textView3" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/etDate"
+                        android:layout_gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="time"
+                        android:ems="10"
+                        android:id="@+id/etTime"
+                        android:layout_gravity="right" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flValue">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Value"
+                        android:id="@+id/tvValue"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etValue"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flAwake" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Hours Awake"
+                        android:id="@+id/tvAwake"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etAwake"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flCalories" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Calories"
+                        android:id="@+id/tvCalories"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etCalories"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flCarbohydrates" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Carbohydrates"
+                        android:id="@+id/tvCarbohydrates"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etCarbohydrates"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flDeepSleep" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Deep Sleep"
+                        android:id="@+id/tvDeepSleep"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etDeepSleep"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flDistance" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Distance (kms)"
+                        android:id="@+id/tvDistance"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etDistance"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flFat" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text=""
+                        android:id="@+id/tvFat"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etFat"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flFiber" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Fiber"
+                        android:id="@+id/tvFiber"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etFiber"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flLightSleep" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Light Sleep"
+                        android:id="@+id/tvLightSleep"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etLightSleep"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flProtein" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Protein"
+                        android:id="@+id/tvProtein"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etProtein"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flRemSleep" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Rem Sleep"
+                        android:id="@+id/tvRemSleep"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etRemSleep"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flStepCount" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Step Count"
+                        android:id="@+id/tvStepCount"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etStepCount"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flSugar" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Sugar (g)"
+                        android:id="@+id/tvSugar"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etSugar"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flDateTimeStart">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Start DateTime"
+                        android:id="@+id/textView33" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/etDateStart"
+                        android:layout_gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="time"
+                        android:ems="10"
+                        android:id="@+id/etTimeStart"
+                        android:layout_gravity="right" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flDateTimeEnd">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="End DateTime"
+                        android:id="@+id/textView23" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/etDateEnd"
+                        android:layout_gravity="center_horizontal" />
+
+                    <EditText
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="time"
+                        android:ems="10"
+                        android:id="@+id/etTimeEnd"
+                        android:layout_gravity="right" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flWellbeing">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Type"
+                        android:id="@+id/textView25"
+                        android:singleLine="false"/>
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etWellbeing"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flTimeAwoke" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Times Awoke"
+                        android:id="@+id/tvTimesAwoke"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etTimesAwoke"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flTotalSleep" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Total Sleep"
+                        android:id="@+id/tvTotalSleep"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etTotalSleep"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flWeight" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Weight (kgs)"
+                        android:id="@+id/tvWeight"
+                        android:singleLine="false" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etWeight"
+                        android:layout_gravity="right"
+                        android:text="80"
+                        android:textAlignment="textEnd"
+                        android:inputType="number|numberSigned|numberDecimal" />
+                </FrameLayout>
+                <!--
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/flEmotion">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Emotion"
+                        android:id="@+id/tvEmotion"
+                        android:layout_gravity="left"
+                        android:textSize="22dp" />
+
+                    <Spinner
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/snEmotion"
+                        android:layout_gravity="top|right"
+                        android:entries="@array/emotion_arrays" />
+                </FrameLayout>
+                -->
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp"
+                android:id="@+id/progressBar"
+                android:progress="90"
+                android:layout_gravity="center_vertical" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="0dp"
+            android:background="#ff000000">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"
+                android:background="#ff000000">
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top">
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Get Data"
+                    android:id="@+id/btGet"
+                    android:layout_gravity="top|left|center_horizontal"
+                    android:singleLine="false"
+                    android:onClick="onGet"
+                    android:textSize="15dp"
+                    android:background="#ffb6ffa5"
+                    android:layout_margin="3dp"/>
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Send Data"
+                    android:id="@+id/btSend"
+                    android:layout_gravity="top|left|center_horizontal"
+                    android:onClick="onSend"
+                    android:textSize="15dp"
+                    android:background="#ff2cff90"
+                    android:layout_margin="3dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Delete ID ->"
+                    android:id="@+id/btDelete"
+                    android:textSize="15dp"
+                    android:layout_gravity="top|center_horizontal|right"
+                    android:onClick="onDelete"
+                    android:background="#ffecff02"
+                    android:layout_margin="3dp"/>
+
+                <EditText
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/etDeleteID"
+                    android:layout_gravity="top|right|center_horizontal"
+                    android:text="1234"
+                    android:textAlignment="textEnd"
+                    android:numeric="integer"
+                    android:inputType="number"
+                    android:background="#ffecff02"
+                    android:layout_margin="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Logout"
+                    android:id="@+id/button3"
+                    android:textSize="14dp"
+                    android:onClick="onClearToken"
+                    android:layout_margin="1dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Set Time Now"
+                    android:id="@+id/button"
+                    android:textSize="14dp"
+                    android:onClick="onSetTimeNow"
+                    android:layout_margin="1dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Connections"
+                    android:id="@+id/button5"
+                    android:textSize="14dp"
+                    android:layout_margin="1dp"
+                    android:onClick="pressedConnections" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Profile"
+                    android:id="@+id/button6"
+                    android:textSize="14dp"
+                    android:layout_margin="1dp"
+                    android:onClick="pressedProfile"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/flPostBusy">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/greyoverlay"
+            android:background="#80000000"
+            />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pbActivity"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</FrameLayout>

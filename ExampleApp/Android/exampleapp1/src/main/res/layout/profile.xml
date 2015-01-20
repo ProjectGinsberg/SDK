@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/bg"
+    android:id="@+id/flSignup">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Profile"
+            android:id="@+id/textView7"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="21sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="First Name:"
+            android:id="@+id/tvProfileFirst"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/etProfileFirst"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Last Name:"
+            android:id="@+id/tvProfileLast"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/etProfileLast"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Phone Number"
+            android:id="@+id/tvProfileNumber"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/etProfileNumber"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Country:"
+            android:id="@+id/textView8"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spProfile"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:layout_width="170sp"
+                android:layout_height="40sp"
+                android:text="CLOSE"
+                android:id="@+id/btClose"
+                android:layout_gravity="left"
+                style="@style/AppTheme"
+                android:onClick="pressedCancel"
+                android:textColor="#ff5cbabc"
+                android:textSize="12dp"
+                android:background="@drawable/btround"
+                android:gravity="center" />
+
+            <Button
+                style="@style/AppTheme"
+                android:layout_width="170sp"
+                android:layout_height="40sp"
+                android:text="SAVE"
+                android:id="@+id/btCreate"
+                android:layout_gravity="right"
+                android:onClick="pressedUpdate"
+                android:textColor="#ff5cbabc"
+                android:textSize="12dp"
+                android:background="@drawable/btround" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/flProfileBusy">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/greyoverlay"
+            android:background="#80000000"
+            />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pbActivity"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</FrameLayout>

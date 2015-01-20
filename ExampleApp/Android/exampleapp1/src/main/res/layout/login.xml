@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1"
+              android:background="@drawable/bg">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/logoginsberg2"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Create account"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            style="@style/AppTheme"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:text="WITH LAYOUT"
+            android:id="@+id/button4"
+            android:layout_gravity="center_horizontal|bottom"
+            android:textColor="#ff5cbabc"
+            android:textSize="12dp"
+            android:background="@drawable/btround"
+            android:layout_marginBottom="10dp"
+            android:onClick="pressedSignupLayout"
+            android:gravity="center" />
+
+        <Button
+            style="@style/AppTheme"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:text="WITH WEB INTERFACE"
+            android:id="@+id/button5"
+            android:layout_gravity="center_horizontal|bottom"
+            android:onClick="pressedSignupWeb"
+            android:textColor="#ff5cbabc"
+            android:textSize="12dp"
+            android:background="@drawable/btround"
+            android:layout_marginBottom="10dp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Already have an acount?"
+            android:id="@+id/lbLogin"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.03"
+            android:gravity="bottom"
+            android:textColor="#ffffffff"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:text="LOGIN TO GET STARTED"
+            android:id="@+id/btLogin"
+            android:layout_gravity="center_horizontal|bottom"
+            style="@style/AppTheme"
+            android:onClick="pressedLogin"
+            android:textColor="#ff5cbabc"
+            android:textSize="12dp"
+            android:background="@drawable/btround"
+            android:layout_marginBottom="10dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+</FrameLayout>
