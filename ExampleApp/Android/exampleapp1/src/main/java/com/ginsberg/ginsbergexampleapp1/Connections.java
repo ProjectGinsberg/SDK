@@ -3,8 +3,6 @@ package com.ginsberg.ginsbergexampleapp1;
 import com.ginsberg.api.GAPI;
 import com.ginsberg.api.IGAPICallbacks;
 
-
-//import android.app.Application;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,45 +12,30 @@ import android.support.v4.app.FragmentActivity;
 import org.json.JSONArray;
 
 
+//
+// Show connections to third party products, such as Fitbit, RunKeeper, Jawbone
+//
+
 public class Connections extends FragmentActivity implements IGAPICallbacks
 {
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connections);
 
-        // Create a new service client and bind our activity to this service
-        viewWillAppear();
-    }
-
-
-
-    public void viewWillAppear()
-    {
+        //Set callbacks to this instance
         GAPI.Instance().SetCallbacks(this, this);
+
+        //Start connections web popover, with views default background
         GAPI.Instance().ConnectionsWeb(R.drawable.bg);
     }
 
 
-    private void MoveOn()
-    {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run()
-            {
+    //
+    // Callbacks
+    //
 
-                // Finish splash activity so user cant go back to it.
-                Connections.this.finish();
-
-                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-            }
-        }, 0);
-    }
-
-
-    //GAPI Callbacks
     public void NeedLogin()
     {
     }
@@ -70,9 +53,20 @@ public class Connections extends FragmentActivity implements IGAPICallbacks
 
     public void Comment(String newText)
     {
+        //Detect if SDKs webview button has been sent, (sends a "Webview Closed" comment).
         if(newText == "Webview Closed")
         {
-            MoveOn();
+            //Move back to post screen
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run()
+                {
+                    // Finish splash activity so user cant go back to it.
+                    Connections.this.finish();
+
+                    overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                }
+            }, 0);
         }
     }
 

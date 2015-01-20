@@ -3,7 +3,6 @@ package com.ginsberg.ginsbergexampleapp1;
 import com.ginsberg.api.GAPI;
 import com.ginsberg.api.IGAPICallbacks;
 
-//import android.app.Application;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,12 +16,16 @@ import android.widget.FrameLayout;
 import org.json.JSONArray;
 
 
+
+//
+// Handle signing up to Ginsberg, with minimal information needed from user
+//
+
 public class Signup extends FragmentActivity implements IGAPICallbacks
 {
     private FrameLayout flBusy;
 
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -32,13 +35,8 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
         flBusy = (FrameLayout)findViewById(R.id.flSignupBusy);
 
         SetBusy(false);
-        viewWillAppear();
-    }
 
-
-
-    public void viewWillAppear()
-    {
+        //Set callbacks to this instance
         GAPI.Instance().SetCallbacks(this, this);
     }
 
@@ -64,9 +62,13 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
     }
 
 
-    //Actions
+    //
+    // Actions
+    //
+
     public void pressedSignUp(View v)
     {
+        //Call signup with entered values, using defaults where possible to reduce initial user inputs
         GAPI.Instance().SignUp("Please", "Replace", ((EditText)findViewById(R.id.etSignupPassword)).getText().toString(),
                                                     ((EditText)findViewById(R.id.etSignupCPassword)).getText().toString(),
                                                     ((EditText)findViewById(R.id.etSignupEmail)).getText().toString(), 1, null);
@@ -79,7 +81,10 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
     }
 
 
-    //GAPI Callbacks
+    //
+    // Callbacks
+    //
+
     public void NeedLogin()
     {
     }
@@ -98,6 +103,7 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
 
     public void Comment(String text)
     {
+        //If message is of signup success, rather than default initial posting reponse, tell user of successful signup
         if(text != "Post Success!")
         {
             final Activity activity = this;

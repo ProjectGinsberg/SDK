@@ -3,8 +3,6 @@ package com.ginsberg.ginsbergexampleapp1;
 import com.ginsberg.api.GAPI;
 import com.ginsberg.api.IGAPICallbacks;
 
-
-//import android.app.Application;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,23 +16,17 @@ import android.widget.TextView;
 import org.json.JSONArray;
 
 
+//
+// Initial screen, for starting signup for user, else logging into system
+//
+
 public class Login extends FragmentActivity implements IGAPICallbacks
 {
+    //Example apps ID
     static final String CLIENT_ID = "B2FCEFED62ED69D9C345E826A749AA86E0CC8F40";
     static final String CLIENT_SECRET = "51CBCCCBBF026387B64F4EBA4B0F4B335FA844D3";
-    private int results = 0;
-
-    //Notificaiton stuff
-    static final String NotifyStoreKey = "token";
-    static final String HourStoreKey = "nothour";
-    static final String MinStoreKey = "notmin";
-
-    public static int hour = 0;
-    public static int min = 0;
-    public static boolean notification = true;
 
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -51,20 +43,14 @@ public class Login extends FragmentActivity implements IGAPICallbacks
         ((TextView)findViewById(R.id.lbLogin)).setTypeface(osl);
         ((TextView)findViewById(R.id.btLogin)).setTypeface(osb);
 
-        // Create a new service client and bind our activity to this service
-        viewWillAppear();
-    }
-
-
-
-    public void viewWillAppear()
-    {
+        //Initial SDK setup
         GAPI.Instance().Setup(this, CLIENT_ID, CLIENT_SECRET, this);
     }
 
 
     private void MoveOn()
     {
+        //Move onto post screen
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run()
@@ -84,7 +70,10 @@ public class Login extends FragmentActivity implements IGAPICallbacks
     }
 
 
-    //Actions
+    //
+    // Actions
+    //
+
     public void pressedSignupLayout(View v)
     {
         new Handler().postDelayed(new Runnable() {
@@ -102,18 +91,26 @@ public class Login extends FragmentActivity implements IGAPICallbacks
         }, 0);
     }
 
-    public void pressedSignupWeb(View v) { GAPI.Instance().SignUpWeb(); }
+    public void pressedSignupWeb(View v)
+    {
+        //Start web signup popover
+        GAPI.Instance().SignUpWeb(); }
 
 
     public void pressedLogin(View v)
     {
+        //Start SDK login process
         GAPI.Instance().Login();
     }
 
 
-    //GAPI Callbacks
+    //
+    // Callbacks
+    //
+
     public void NeedLogin()
     {
+        //Show login buttons as login needed
         findViewById(R.id.btLogin).setVisibility(View.VISIBLE);
         findViewById(R.id.lbLogin).setVisibility(View.VISIBLE);
     }
@@ -121,9 +118,11 @@ public class Login extends FragmentActivity implements IGAPICallbacks
 
     public void GainedAccess()
     {
+        //Login done so hide login button
         findViewById(R.id.btLogin).setVisibility(View.GONE);
         findViewById(R.id.lbLogin).setVisibility(View.GONE);
 
+        //Move onto next view
         MoveOn();
     }
 
@@ -140,8 +139,6 @@ public class Login extends FragmentActivity implements IGAPICallbacks
 
     public void CommentError(String newText)
     {
-        NeedLogin();
-
         new AlertDialog.Builder(this)
                 .setTitle("Connection Error")
                 .setMessage("Please check internet connection.")
@@ -168,12 +165,7 @@ public class Login extends FragmentActivity implements IGAPICallbacks
 
     public void DataReceived(String endPoint, JSONArray data)
     {
-        ++results;
 
-        if(results >= 3)
-        {
-            //MoveOn();
-        }
     }
 }
 

@@ -3,8 +3,6 @@ package com.ginsberg.ginsbergexampleapp1;
 import com.ginsberg.api.GAPI;
 import com.ginsberg.api.IGAPICallbacks;
 
-
-//import android.app.Application;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -20,15 +18,19 @@ import android.widget.Spinner;
 import org.json.JSONArray;
 
 
+//
+// Handle updating the users profile information
+//
+
 public class Profile extends FragmentActivity implements IGAPICallbacks
 {
+    //Truth of is user has changed values, before originals obtained from server
     private boolean firstNameChanged = false;
     private boolean lastNameChanged = false;
     private boolean phoneNumberChanged = false;
     private boolean countryChanged = false;
 
 
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -38,11 +40,13 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
 
         SetBusy(false);
 
-        // Create a new service client and bind our activity to this service
-        viewWillAppear();
+        //Set callbacks to this instance
+        GAPI.Instance().SetCallbacks(this, this);
 
+        //Update screen with stored user details
+        UpdateDetails();
 
-        //Callbacks
+        //Callbacks to detect if values changed, incase done before received from server
         ((EditText)findViewById(R.id.etProfileFirst)).addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {}
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -58,16 +62,41 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
     }
 
 
+    //
+    // Actions
+    //
 
-    public void viewWillAppear()
+    public void pressedUpdate(View sender)
     {
-        //self.screenName = @"Login Screen";
-        GAPI.Instance().SetCallbacks(this, this);
-        UpdateDetails();
+        //Grab user entered data
+        String firstName =  ((EditText)findViewById(R.id.etProfileFirst)).getText().toString();
+        String lastName = ((EditText)findViewById(R.id.etProfileLast)).getText().toString();
+        String phoneNumber = ((EditText)findViewById(R.id.etProfileNumber)).getText().toString();
+        String countryName = ((Spinner)findViewById(R.id.spProfile)).getSelectedItem().toString();
+        int countryID = ((Spinner)findViewById(R.id.spProfile)).getSelectedItemPosition();
+
+        // If user profile info changed then send to user
+        if(!firstName.equals(GAPI.Instance().userFirstName) || !lastName.equals(GAPI.Instance().userLastName)  ||
+           !phoneNumber.equals(GAPI.Instance().userPhoneNumber) || !countryName.equals(GAPI.Instance().userCountry) )
+        {
+            GAPI.Instance().PostProfile(firstName, lastName, phoneNumber, countryID+1);
+        }
+        else
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle("No Updates")
+                    .setMessage("No data has changed.")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            SetBusy(false);
+                        }
+                    });
+        }
     }
 
 
-    private void MoveOn()
+    public void pressedCancel(View sender)
     {
         // Create a new handler with which to start the main activity
         //   and close this splash activity after SPLASH_DISPLAY_TIME has
@@ -91,42 +120,11 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
     }
 
 
-    //Actions
-    public void pressedUpdate(View sender)
-    {
-        String firstName =  ((EditText)findViewById(R.id.etProfileFirst)).getText().toString();
-        String lastName = ((EditText)findViewById(R.id.etProfileLast)).getText().toString();
-        String phoneNumber = ((EditText)findViewById(R.id.etProfileNumber)).getText().toString();
-        String countryName = ((Spinner)findViewById(R.id.spProfile)).getSelectedItem().toString();
-        int countryID = ((Spinner)findViewById(R.id.spProfile)).getSelectedItemPosition();
+    //
+    // Methods
+    //
 
-        if(!firstName.equals(GAPI.Instance().userFirstName) || !lastName.equals(GAPI.Instance().userLastName)  ||
-           !phoneNumber.equals(GAPI.Instance().userPhoneNumber) || !countryName.equals(GAPI.Instance().userCountry) )
-        {
-            GAPI.Instance().PostProfile(firstName, lastName, phoneNumber, countryID+1);
-        }
-        else
-        {
-            new AlertDialog.Builder(this)
-                    .setTitle("No Updates")
-                    .setMessage("No data has changed.")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // continue with delete
-                            SetBusy(false);
-                        }
-                    });
-        }
-    }
-
-
-    public void pressedCancel(View sender)
-    {
-        MoveOn();
-    }
-
-
-    //Methods
+    //Update onscreen user details if SDK has valid values for
     public void UpdateDetails()
     {
         if(GAPI.Instance().userFirstName != null && !firstNameChanged)
@@ -164,7 +162,10 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
     }
 
 
-    //GAPI Callbacks
+    //
+    // Callbacks
+    //
+
     public void NeedLogin()
     {
     }
@@ -225,6 +226,7 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
 
     public void DataReceived(String endPoint, JSONArray data)
     {
+        //If data has been recieved back from server then update screen with
         UpdateDetails();
     }
 }

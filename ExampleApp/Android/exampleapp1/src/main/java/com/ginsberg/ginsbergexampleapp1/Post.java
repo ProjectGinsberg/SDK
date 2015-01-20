@@ -3,10 +3,8 @@ package com.ginsberg.ginsbergexampleapp1;
 import com.ginsberg.api.GAPI;
 import com.ginsberg.api.IGAPICallbacks;
 
-
 import org.json.JSONArray;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +19,11 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+
+
+//
+// Main handler of demonstrating getting and posting of users Ginsberg data
+//
 
 public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItemSelectedListener
 {
@@ -42,9 +45,9 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     private boolean dataRequested = false;
 
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post);
 
@@ -69,16 +72,13 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         snChoice.setOnItemSelectedListener(this);
         onSetTimeNow(null);
 
-        SetupClient();
-    }
-
-
-    //General methods
-    private void SetupClient()
-    {
         GAPI.Instance().SetCallbacks(this, this);
     }
 
+
+    //
+    // General methods
+    //
 
     private void EnableViews(boolean getData, boolean postData, boolean deleteData, String valueType, int... keeps)
     {
@@ -120,7 +120,10 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
-    //GUI callbacks
+    //
+    // GUI callbacks
+    //
+
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
     {
         //Update visible items respective of selected choice
@@ -426,24 +429,21 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
-    //GAPI Callbacks
+    //
+    // Callbacks
+    //
+
     public void GainedAccess()
     {
     }
 
-    /**
-      * @brief      Callback for when app has access
-      * @details    After the SDK is initialized and finds no valid user login details, else a connection fault, this method will be called
-      */
+
     public void NeedLogin()
     {
 
     }
 
-    /**
-      * @brief      Callback for when app receives data from the server
-      * @details    When ever the app requests data, this will be where valid returned data will be sent
-      */
+
     public void DataReceived(String endPoint, JSONArray data)
     {
         if( dataRequested ||
@@ -457,10 +457,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         }
     }
 
-    /**
-      * @brief      Callback for when the sdk busy state has changed
-      * @details   
-      */
+
     public void SetBusy(boolean truth)
     {
         findViewById(R.id.flPostBusy).setVisibility( truth? View.VISIBLE: View.INVISIBLE);
