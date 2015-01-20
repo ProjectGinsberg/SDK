@@ -89,18 +89,19 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     
 2. If the system alreasy has a valid user login GAPIProtocols `GainedAccess` will be called from which point you can start getting/posting data. If there is not a valid login GAPIProtocols `NeedLogin` will be called instead.
+
 3. If login is required. call the login method to run the login procedure. Once a valid login process has finished, `GainedAccess` will be called as in the previous step.
     ```obj-c
     //Obj-c
-    GAPI.Instance()!.Login();
+    [[GAPI Instance] Setup:CLIENT_ID, secret:CLIENT_SECRET, callbacks:self];
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.Login();
+    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
     ```
     ```java
     //Android
-    GAPI.Instance().Login();
+    GAPI.Instance().Setup(this, CLIENT_ID, CLIENT_SECRET, this);
     ```
     
 ###Get Data
