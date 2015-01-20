@@ -29,7 +29,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
 {
     private EditText textView;
     private LinearLayout frame;
-    private ProgressBar pb;
     private LinearLayout items;
 
     private Button btSend;
@@ -59,7 +58,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
 
         btSend = (Button) findViewById(R.id.btSend);
         tvValue = (TextView) findViewById(R.id.tvValue);
-        pb = (ProgressBar) findViewById(R.id.progressBar);
         etValue = (EditText) findViewById(R.id.etValue);
         etDate = (EditText) findViewById(R.id.etDate);
         etTime = (EditText) findViewById(R.id.etTime);
@@ -129,6 +127,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     // Actions
     //
 
+    // Update screen when particular posting type has been selected
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
     {
         //Update visible items respective of selected choice
@@ -196,6 +195,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> parent){}
 
 
+    // Post some data of selected type
     public void onSend(View v)
     {
         SetBusy(true);
@@ -264,6 +264,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
+    // Get data of selected type
     public void onGet(View v)
     {
         SetBusy(true);
@@ -305,6 +306,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
+    //Delete data record of selected type and id
     public void onDelete(View v)
     {
         SetBusy(true);

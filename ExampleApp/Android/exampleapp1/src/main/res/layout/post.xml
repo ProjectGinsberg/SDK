@@ -664,137 +664,124 @@
             </LinearLayout>
         </ScrollView>
 
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="10dp"
-                android:id="@+id/progressBar"
-                android:progress="90"
-                android:layout_gravity="center_vertical" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="0dp"
-            android:paddingBottom="0dp"
-            android:background="#ff000000">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="5dp"
-                android:background="#ff000000">
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top">
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="Get Data"
-                    android:id="@+id/btGet"
-                    android:layout_gravity="top|left|center_horizontal"
-                    android:singleLine="false"
-                    android:onClick="onGet"
-                    android:textSize="15dp"
-                    android:background="#ffb6ffa5"
-                    android:layout_margin="3dp"/>
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="Send Data"
-                    android:id="@+id/btSend"
-                    android:layout_gravity="top|left|center_horizontal"
-                    android:onClick="onSend"
-                    android:textSize="15dp"
-                    android:background="#ff2cff90"
-                    android:layout_margin="3dp"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Delete ID ->"
-                    android:id="@+id/btDelete"
-                    android:textSize="15dp"
-                    android:layout_gravity="top|center_horizontal|right"
-                    android:onClick="onDelete"
-                    android:background="#ffecff02"
-                    android:layout_margin="3dp"/>
-
-                <EditText
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/etDeleteID"
-                    android:layout_gravity="top|right|center_horizontal"
-                    android:text="1234"
-                    android:textAlignment="textEnd"
-                    android:numeric="integer"
-                    android:inputType="number"
-                    android:background="#ffecff02"
-                    android:layout_margin="3dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                >
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Logout"
-                    android:id="@+id/button3"
-                    android:textSize="14dp"
-                    android:onClick="onClearToken"
-                    android:layout_margin="1dp"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Set Time Now"
-                    android:id="@+id/button"
-                    android:textSize="14dp"
-                    android:onClick="onSetTimeNow"
-                    android:layout_margin="1dp"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Connections"
-                    android:id="@+id/button5"
-                    android:textSize="14dp"
-                    android:layout_margin="1dp"
-                    android:onClick="pressedConnections" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Profile"
-                    android:id="@+id/button6"
-                    android:textSize="14dp"
-                    android:layout_margin="1dp"
-                    android:onClick="pressedProfile"/>
-
-            </LinearLayout>
-        </FrameLayout>
-
     </LinearLayout>
 
 </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="0dp"
+        android:background="#ff000000">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:background="#ff000000">
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Get Data"
+                android:id="@+id/btGet"
+                android:layout_gravity="top|left|center_horizontal"
+                android:singleLine="false"
+                android:onClick="onGet"
+                android:textSize="15dp"
+                android:background="#ffb6ffa5"
+                android:layout_margin="3dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Send Data"
+                android:id="@+id/btSend"
+                android:layout_gravity="top|left|center_horizontal"
+                android:onClick="onSend"
+                android:textSize="15dp"
+                android:background="#ff2cff90"
+                android:layout_margin="3dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Delete ID ->"
+                android:id="@+id/btDelete"
+                android:textSize="15dp"
+                android:layout_gravity="top|center_horizontal|right"
+                android:onClick="onDelete"
+                android:background="#ffecff02"
+                android:layout_margin="3dp"/>
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/etDeleteID"
+                android:layout_gravity="top|right|center_horizontal"
+                android:text="1234"
+                android:textAlignment="textEnd"
+                android:numeric="integer"
+                android:inputType="number"
+                android:background="#ffecff02"
+                android:layout_margin="3dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Logout"
+                android:id="@+id/button3"
+                android:textSize="14dp"
+                android:onClick="onClearToken"
+                android:layout_margin="1dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Set Time Now"
+                android:id="@+id/button"
+                android:textSize="14dp"
+                android:onClick="onSetTimeNow"
+                android:layout_margin="1dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Connections"
+                android:id="@+id/button5"
+                android:textSize="14dp"
+                android:layout_margin="1dp"
+                android:onClick="pressedConnections" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Profile"
+                android:id="@+id/button6"
+                android:textSize="14dp"
+                android:layout_margin="1dp"
+                android:onClick="pressedProfile"/>
+
+        </LinearLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="fill_parent"
