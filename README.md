@@ -93,15 +93,15 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
 3. If login is required. call the login method to run the login procedure. Once a valid login process has finished, `GainedAccess` will be called as in the previous step.
     ```obj-c
     //Obj-c
-    [[GAPI Instance] Setup:CLIENT_ID, secret:CLIENT_SECRET, callbacks:self];
+    [[GAPI Instance] Login];
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+    GAPI.Instance()!.Login();
     ```
     ```java
     //Android
-    GAPI.Instance().Setup(this, CLIENT_ID, CLIENT_SECRET, this);
+    GAPI.Instance().Login();
     ```
     
 ###Get Data
