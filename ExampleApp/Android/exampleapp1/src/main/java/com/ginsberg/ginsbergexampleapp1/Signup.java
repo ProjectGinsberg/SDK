@@ -6,33 +6,19 @@ import com.ginsberg.api.IGAPICallbacks;
 //import android.app.Application;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.TimePicker;
 
-import org.json.JSONObject;
 import org.json.JSONArray;
-
-import java.util.Calendar;
 
 
 public class Signup extends FragmentActivity implements IGAPICallbacks
 {
-    private int results = 0;
     private FrameLayout flBusy;
 
 
@@ -107,7 +93,6 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
     public void SetBusy(boolean truth)
     {
         flBusy.setVisibility(truth? View.VISIBLE: View.GONE);
-        //findViewById(R.id.greyoverlay).setVisibility(truth? View.VISIBLE: View.GONE);
     }
 
 
@@ -147,12 +132,6 @@ public class Signup extends FragmentActivity implements IGAPICallbacks
                         SetBusy(false);
                     }
                 })
-                /*
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })*/
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }

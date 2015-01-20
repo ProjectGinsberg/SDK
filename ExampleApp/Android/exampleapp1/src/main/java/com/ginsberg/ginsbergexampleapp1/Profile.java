@@ -5,35 +5,19 @@ import com.ginsberg.api.IGAPICallbacks;
 
 
 //import android.app.Application;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.TimePicker;
 
-import org.json.JSONObject;
 import org.json.JSONArray;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 
 public class Profile extends FragmentActivity implements IGAPICallbacks
@@ -208,12 +192,6 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
                         SetBusy(false);
                     }
                 })
-                /*
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })*/
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
@@ -230,12 +208,6 @@ public class Profile extends FragmentActivity implements IGAPICallbacks
                         SetBusy(false);
                     }
                 })
-                /*
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-                    }
-                })*/
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }

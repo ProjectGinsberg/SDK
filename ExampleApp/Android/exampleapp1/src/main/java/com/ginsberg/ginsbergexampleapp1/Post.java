@@ -5,20 +5,15 @@ import com.ginsberg.api.IGAPICallbacks;
 
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.text.format.Time;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,8 +24,6 @@ import android.widget.TextView;
 
 public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItemSelectedListener
 {
-    private String CLIENT_ID = "0C3E41087051F905D76F2DDE5B0C7930F79CBC46";
-
     private EditText textView;
     private LinearLayout frame;
     private ProgressBar pb;
@@ -44,7 +37,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     private EditText etTime;
     private Spinner snChoice;
     private EditText etID;
-    //private Spinner snEmotion;
     private Spinner snGetPeriod;
 
     private boolean dataRequested = false;
@@ -58,12 +50,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
 
         SetBusy(false);
 
-        //Force to login on every launch.
-        //CookieManager cookieManager = CookieManager.getInstance();
-        //cookieManager.removeAllCookie();
-
-        //btSignIn = (Button) findViewById(R.id.btSignIn);
-        //btSignUp = (Button) findViewById(R.id.btSignUp);
         textView = (EditText) findViewById(R.id.etConsole);
         frame = (LinearLayout) findViewById(R.id.llMain);
         items = (LinearLayout) findViewById(R.id.llItems);
@@ -90,8 +76,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     //General methods
     private void SetupClient()
     {
-//        frame.setVisibility(View.GONE);
-
         GAPI.Instance().SetCallbacks(this, this);
     }
 
@@ -141,7 +125,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     {
         //Update visible items respective of selected choice
         String selection = snChoice.getSelectedItem().toString();
-        //Comment("Switching view for " + selection);
 
          //case "Aggregate":Int(ID)); break;
         if(selection.equals("Correlations"))       EnableViews(false, false, false, null);
@@ -414,9 +397,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
                 Intent mainIntent = new Intent(Post.this, Connections.class);
                 Post.this.startActivity(mainIntent);
 
-                // Finish splash activity so user cant go back to it.
-                //Login.this.finish();
-
                 // Apply our splash exit (fade out) and main
                 //   entry (fade in) animation transitions.
                 overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -438,9 +418,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
                 Intent mainIntent = new Intent(Post.this, Profile.class);
                 Post.this.startActivity(mainIntent);
 
-                // Finish splash activity so user cant go back to it.
-                //Login.this.finish();
-
                 // Apply our splash exit (fade out) and main
                 //   entry (fade in) animation transitions.
                 overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -452,8 +429,6 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     //GAPI Callbacks
     public void GainedAccess()
     {
-       // webView.setVisibility(View.GONE);
-       // frame.setVisibility(View.VISIBLE);
     }
 
     /**

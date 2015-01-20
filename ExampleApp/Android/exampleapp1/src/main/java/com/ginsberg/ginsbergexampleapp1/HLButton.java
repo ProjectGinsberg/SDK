@@ -12,8 +12,6 @@ public class HLButton extends Button
 {
     public HLButton(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
-
     }
 
     public HLButton(Context context, AttributeSet attrs){
@@ -24,18 +22,12 @@ public class HLButton extends Button
         super(context,attrs,defStyle);
     }
 
-    /*
-    public void setImageResource (int resId){
-        super.setImageResource(resId);
-    }
-    */
-
     @Override
     public boolean onTouchEvent(MotionEvent e){
         if(e.getAction() == MotionEvent.ACTION_DOWN){
-            this.getBackground().setColorFilter(Color.parseColor("#B7B2B0"), PorterDuff.Mode.MULTIPLY);//Color.argb(155, 155, 155, 155));
+            this.getBackground().setColorFilter(Color.parseColor("#B7B2B0"), PorterDuff.Mode.MULTIPLY);
         }else if(e.getAction() == MotionEvent.ACTION_UP){
-            this.getBackground().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.MULTIPLY);//Color.argb(0, 185, 185, 185));
+            this.getBackground().setColorFilter(Color.parseColor("#FFFFFF"), PorterDuff.Mode.MULTIPLY);
         }
 
         return super.onTouchEvent(e);
