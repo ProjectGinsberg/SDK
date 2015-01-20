@@ -69,9 +69,13 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         etID = (EditText) findViewById(R.id.etID);
         etDeleteID = (EditText) findViewById(R.id.etDeleteID);
 
+        //Set initial picker selection
         snChoice.setOnItemSelectedListener(this);
+
+        //Set onscreen dates to now
         onSetTimeNow(null);
 
+        //Set callbacks to this instance
         GAPI.Instance().SetCallbacks(this, this);
     }
 
@@ -80,12 +84,13 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     // General methods
     //
 
+    // Customise view
     private void EnableViews(boolean getData, boolean postData, boolean deleteData, String valueType, int... keeps)
     {
         int itemsCount = items.getChildCount();
         int keepsCount = keeps.length;
 
-        //Run through all items
+        //Run through all items and hide if not in keeps list
         for(int i = 0; i < itemsCount; ++i)
         {
             View item = items.getChildAt(i);
@@ -105,13 +110,13 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
             item.setVisibility(match? View.VISIBLE: View.GONE);
         }
 
-        //Show buttons
+        //Show buttons at bottom if usable
         findViewById(R.id.btGet).setVisibility(getData? View.VISIBLE: View.GONE);
         findViewById(R.id.btDelete).setVisibility(deleteData? View.VISIBLE: View.GONE);
         findViewById(R.id.etDeleteID).setVisibility(deleteData? View.VISIBLE: View.GONE);
         btSend.setVisibility(postData? View.VISIBLE: View.GONE);
 
-        //Show variable
+        //Show default variable value and related text for
         findViewById(R.id.flValue).setVisibility(valueType != null? View.VISIBLE: View.GONE);
         if(valueType != null)
         {
@@ -121,7 +126,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
 
 
     //
-    // GUI callbacks
+    // Actions
     //
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
@@ -208,7 +213,9 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         try{ ef = Float.valueOf(ev); }
         catch(NumberFormatException e) {}
 
-        try {
+        try
+        {
+            //Get all potential data from view
             String timeStart =  ((EditText)findViewById(R.id.etDateStart)).getText().toString() + "T" + ((EditText)findViewById(R.id.etTimeStart)).getText().toString();
             String timeEnd =  ((EditText)findViewById(R.id.etDateEnd)).getText().toString() + "T" + ((EditText)findViewById(R.id.etTimeEnd)).getText().toString();
 
@@ -229,6 +236,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
             int stepCount = Integer.valueOf(((EditText)findViewById(R.id.etStepCount)).getText().toString());
             int wellbeingType = Integer.valueOf(((EditText)findViewById(R.id.etWellbeing)).getText().toString());
 
+            //Post data with the respective SDK call
             if (selection.startsWith("Body"))     { GAPI.Instance().PostBody(weight, fat, timeStamp); }
             else if (selection.startsWith("Caffeine")) { GAPI.Instance().PostCaffeine(ef, timeStamp); }
             else if (selection.startsWith("Smoking"))  { GAPI.Instance().PostSmoking(ei, timeStamp); }
@@ -272,6 +280,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         try{ id = Integer.valueOf(etID.getText().toString()); }
         catch(NumberFormatException e) {}
 
+        //Get data with the respective SDK call
         if(selection.startsWith("Correlations"))       { GAPI.Instance().GetCorrelations(); }
         else if(selection.startsWith("Daily Summary")) { GAPI.Instance().GetDailySummary(period,typeFrom,dateFrom,typeTo,dateTo); }
         else if(selection.startsWith("Profile"))       { GAPI.Instance().GetProfile(); }
@@ -314,6 +323,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
             CommentError("Invalid id");
         }
 
+        //Delete data record with the respective SDK call
         if(selection.startsWith("Notifications"))  { GAPI.Instance().DeleteNotifications(ei); }
         //else if(selection.startsWith("Emotion"))   { api.DeleteEmotion(ei); }
         else if(selection.startsWith("Activity"))  { GAPI.Instance().DeleteActivity(ei); }
@@ -334,6 +344,14 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
+    // Clear output view at top of screen
+    public void onClearComments(View v)
+    {
+        textView.setText("");
+    }
+
+
+    // Clear user login token, resulting in current/different user having to log in again
     public void onClearToken(View v)
     {
         GAPI.Instance().ClearToken();
@@ -357,12 +375,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
     }
 
 
-    public void onClearComments(View v)
-    {
-        textView.setText("");
-    }
-
-
+    //Update views time entries to current date
     public void onSetTimeNow(View v)
     {
         Time times = new Time();
@@ -446,6 +459,7 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
 
     public void DataReceived(String endPoint, JSONArray data)
     {
+        //Is data recieved not from default login process, display at top of view, as data apps user requested directly
         if( dataRequested ||
           (   endPoint != "/defaults.json" && !endPoint.contains("/account/signupmetadata")
            && endPoint != "/v1/me" && !endPoint.contains("/v1/wellbeing")
@@ -463,12 +477,11 @@ public class Post extends Activity implements IGAPICallbacks, AdapterView.OnItem
         findViewById(R.id.flPostBusy).setVisibility( truth? View.VISIBLE: View.INVISIBLE);
     }
 
-
+    // Add comments to console type output in top of view
     public void Comment(String newText)
     {
         textView.setText(newText + "\n" + textView.getText());
     }
-
     public void CommentError(String newText) { textView.setText("E:"+newText + "\n" + textView.getText()); }
     public void CommentResult(String newText) { textView.setText("R:"+newText + "\n" + textView.getText()); }
     public void CommentSystem(String newText) { textView.setText("S:"+newText + "\n" + textView.getText()); }
