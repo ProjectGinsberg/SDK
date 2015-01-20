@@ -49,11 +49,11 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
 
     ```obj-c
     //Obj-c
-    GAPI.Instance()!.SignUpWeb();
+    [[GAPI Instance] SignUpWeb];
     ```
     ```obj-c
     //Obj-c
-    GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
+    [[GAPI Instance] SignUp:@"Please" lastName:@"Replace" password:@"password" cpassword:@"password" email:@"john@example.com" countryID:1 wbIDs:nil];
     ```
     ```swift
     //Swift
@@ -62,32 +62,45 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```swift
     //Swift
     GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
+    ```
+    ```java
+    //Android
+    GAPI.Instance().SignUpWeb();
+    ```
+    ```java
+    //Android
+    GAPI.Instance().SignUp("Please", "Replace", "password", "password", "john@example.com", 1, null);
     ```
     
 ###Login
 
-1. Call the setup method with the a valid client id, client secret and GAPIProtocol instance. 
-
+1. Call the setup method with the a valid client id, client secret and GAPIProtocol instance. On android there is an extra first parameter of current activity.
     ```obj-c
     //Obj-c
-    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+    [[GAPI Instance] Setup:CLIENT_ID, secret:CLIENT_SECRET, callbacks:self];
     ```
-
     ```swift
     //Swift
     GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
     ```
+    ```java
+    //Android
+    GAPI.Instance().Setup(this, CLIENT_ID, CLIENT_SECRET, this);
+    ```
+    
 2. If the system alreasy has a valid user login GAPIProtocols `GainedAccess` will be called from which point you can start getting/posting data. If there is not a valid login GAPIProtocols `NeedLogin` will be called instead.
 3. If login is required. call the login method to run the login procedure. Once a valid login process has finished, `GainedAccess` will be called as in the previous step.
-
     ```obj-c
     //Obj-c
     GAPI.Instance()!.Login();
     ```
-
     ```swift
     //Swift
     GAPI.Instance()!.Login();
+    ```
+    ```java
+    //Android
+    GAPI.Instance().Login();
     ```
     
 ###Get Data
