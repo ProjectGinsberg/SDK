@@ -358,7 +358,7 @@
  *  @brief  Get users wellbeing data
  *  Swift example call:
  *  @code
- *  GAPI.Instance().GetDailySummary("All",typeFrom:"yeterday",dateFrom:nil,typeTo:"yesterday",dateTo:nil);
+ *  GAPI.Instance().GetDailySummary("All",typeFrom:"yesterday",dateFrom:nil,typeTo:"yesterday",dateTo:nil);
  *  @endcode
  *  @param  range  Range to get data for. Is one of: "All":Get all available data, "ID":For particular wellbeing entry given by the ID param, "From":From the given typeFrom param, "To":Upto the given typeTo param, "FromTo":Between the given typeFrom/typeTo params.
  *  @param  typeFrom  Type of range to start getting data from. Is one of: "Yesterday", "Lastweek", "Lastyear", "Date"

@@ -38,7 +38,7 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 
 ## Credentials
 
-Your mobile integration requires different `client_id` and `client_secret` values for each application. You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app) and logging in with your Ginsberg account. Register as a developer, if not done already, and select new app. The page will then show you the client_id and client_secret strings to embed into your application.
+Your will require different `client_id` and `client_secret` values for each application you develop using the SDK. You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app) and logging in with your Ginsberg account. Register as a developer, if not done already, and select new app. The page will then show you the client_id and client_secret strings to embed into your application.
 
 ##Implementation Overview
 To setup getting data in and out of Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the GAPIProtocol interface and pass an instance off it to the SDK.
@@ -91,6 +91,32 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     
 ###Get Data
+Getting users data from the system is done via single calls the the SDK, which, if logged in and successful, will send data back to the app via the callbacks `DataReceived` method. The get methods follow a standard format, with a set of parameters to define for what range of values to get back, of the type of data requested. These values are as follows:
+
+ *  **String Range -**  Range to get data for. Is one of: "All":Get all available data, "ID":For particular wellbeing entry given by the ID param, "From":From the given typeFrom param, "To":Upto the given typeTo param, "FromTo":Between the given typeFrom/typeTo params.
+ *  **String TypeFrom -** Type of range to start getting data from. Is one of: "Yesterday", "Lastweek", "Lastyear", "Date"
+ *  **String DateFrom -** If using typeFrom of "Date", the string date to get data from
+ *  **String TypeTo -** Type of range to end getting data upto. Is one of: "Yesterday", "Lastweek", "Lastyear", "Date"
+ *  **String DateTo -** If using typeTo of "Date", the string date to get data upto
+ *  **Int ID -** If using range of "ID", this is the id of the particular entry to get
+
+    ```obj-c
+    GAPI.Instance().GetActivity("All",typeFrom:"Yesterday",dateFrom:nil,typeTo:"Yesterday",dateTo:nil,ID:Int(ID));
+    ```
+
+The calls are get the required data are as follows:
+* **Activity -** Get the users activity for a given period.
+
+    ```obj-c
+    //Obj-c
+    GAPI.Instance().GetActivity(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID));
+    ```
+
+    ```swift
+    //Swift
+    GAPI.Instance().GetActivity(range,typeFrom:typeFrom,dateFrom:dateFrom,typeTo:typeTo,dateTo:dateTo,ID:Int(ID));
+    ```
+    
 ###Post Data
 ###Delete Data
 ###Connections
