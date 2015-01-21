@@ -3,8 +3,6 @@ Ginsberg.io Mobile SDK and Example Apps
 
 The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps.
 
-![SDK screenshots](docs/sdk-screens.png)
-
 ## Contents
 
 - [Requirements](#requirements)
@@ -186,7 +184,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
     
 ###Connections
 
-To connect the users Ginsberg account to external sources, such as fitbit and runkeeper, a popover webview is used for the user to sign into the respective services. This is activated with a single call to the SDK, once the user is logged into the server, as is as follows:
+1. To connect the users Ginsberg account to external sources, such as fitbit and runkeeper, a popover webview is used for the user to sign into the respective services. This is activated with a single call to the SDK, once the user is logged into the server. The call has a single parameter of an optional background image. For iOS this is UIImage, and Android an image ID. It looks as follows:
 
     ```obj-c
     //Obj-c
