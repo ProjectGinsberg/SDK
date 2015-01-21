@@ -57,11 +57,11 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.SignUpWeb();
+    GAPI.Instance().SignUpWeb();
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
+    GAPI.Instance().SignUp("Please", lastName:"Replace", password:"password", cpassword:"password", email:"john@example.com", countryID:1, wbIDs:nil);
     ```
     ```java
     //Android
@@ -97,7 +97,7 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.Login();
+    GAPI.Instance().Login();
     ```
     ```java
     //Android
@@ -105,7 +105,8 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     
 ###Get Data
-Getting users data from the system is done via single calls the the SDK, which, if logged in and successful, will send data back to the app via the callbacks `DataReceived` method. The get methods follow a standard format, with a set of parameters to define for what range of values to get back, of the type of data requested. These values are as follows:
+
+Getting users data from the system is done via single calls to the SDK, which, if logged in and successful, will send data back to the app via the callbacks `DataReceived` method. The get methods follow a standard format, with a set of parameters to define for what range of values to get back, of the type of data requested.  If a fault occurs, then a call to `CommentError` will be made. These values are as follows:
 
  *  **String Range -**  Range to get data for. Is one of: "All":Get all available data, "ID":For particular wellbeing entry given by the ID param, "From":From the given typeFrom param, "To":Upto the given typeTo param, "FromTo":Between the given typeFrom/typeTo params.
  *  **String TypeFrom -** Type of range to start getting data from. Is one of: "Yesterday", "Lastweek", "Lastyear", "Date"
@@ -144,8 +145,61 @@ The calls are get the required data are as follows:
     ```
     
 ###Post Data
+
+As with getting data, posting users data to the system is done via single calls to the SDK, which, if logged in and successful, will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
+
+The calls to post the required data are as follows:
+* **Activity -** Post the users details of a given activity.
+
+    ```obj-c
+    //Obj-c
+    [[GAPI.Instance] PostActivity:timeStamp start:timeStart end:timeEnd dist:distance cal:calories steps:Int32(stepCount)];
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance().PostActivity(timeStamp, start:timeStart, end:timeEnd, dist:distance, cal:calories, steps:Int32(stepCount));
+    ```
+    ```java
+    //Android
+    GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+    ```
+
 ###Delete Data
+
+The final common method is Delete for deleting a single identified record of users data from the system as done via single calls to the SDK. If logged in and successful, the system will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
+
+The calls to delete the required data all have a single parameter of the Int ID value of the required record to delete and are as follows:
+* **Activity -** Delete a particular record of users activity.
+
+    ```obj-c
+    //Obj-c
+    [[GAPI.Instance] DeleteActivity:12345];
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance().DeleteActivity(12345)
+    ```
+    ```java
+    //Android
+    GAPI.Instance().DeleteActivity(12345);
+    ```
+    
 ###Connections
+
+To connect the users Ginsberg account to external sources, such as fitbit and runkeeper, a popover webview is used for the user to sign into the respective services. This is activated with a single call to the SDK, once the user is logged into the server, as is as follows:
+
+    ```obj-c
+    //Obj-c
+    [[GAPI Instance] ConnetionsWeb:bgUIImage];
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance().ConnectionsWeb(bgUIImage);
+    ```
+    ```java
+    //Android
+    GAPI.Instance().ConnectionsWeb(bgImageID);
+    ```
 
 ##Example App
 
