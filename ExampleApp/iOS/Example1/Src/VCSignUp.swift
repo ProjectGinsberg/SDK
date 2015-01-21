@@ -36,7 +36,7 @@ class VCSignUp: UIViewController, GAPIProtocol, UITextFieldDelegate
         super.viewDidLoad()
         
         //Set callbacks to this instance
-        GAPI.Instance()?.SetCallbacks(self);
+        GAPI.Instance().SetCallbacks(self);
         
         //Hide busy indicator
         SetBusy(false);
@@ -75,7 +75,7 @@ class VCSignUp: UIViewController, GAPIProtocol, UITextFieldDelegate
     {
         //Call signup with entered values, using defaults where possible to reduce initial user inputs
         var wbIDs = [1,2,3];
-        GAPI.Instance()!.SignUp("Please", lastName:"Replace", password:tfPassword.text, cpassword:tfCPassword.text, email:tfEmail.text, countryID:1, wbIDs:nil);
+        GAPI.Instance().SignUp("Please", lastName:"Replace", password:tfPassword.text, cpassword:tfCPassword.text, email:tfEmail.text, countryID:1, wbIDs:nil);
     }
 
     

@@ -42,10 +42,10 @@ class VCConnections: UIViewController, GAPIProtocol
         super.viewWillAppear(animated);
         
         //Set callbacks to this instance
-        GAPI.Instance()?.SetCallbacks(self);
+        GAPI.Instance().SetCallbacks(self);
         
         //Start connections web popover, with views default background
-        GAPI.Instance()?.ConnectionsWeb(UIImage(named: "bg-temp.png"));
+        GAPI.Instance().ConnectionsWeb(UIImage(named: "bg-temp.png"));
     }
     
     

@@ -235,7 +235,7 @@
  *  @brief  Create new user, e.g. via custom signup dialog.
  *  Swift example call:
  *  @code
- *  GAPI.Instance()!.SignUp("John", lastName:"Smith", password:"Password", cpassword:"Password", email:"john@smith.com", countryID:1, wbIDs:nil);
+ *  GAPI.Instance.().SignUp("John", lastName:"Smith", password:"Password", cpassword:"Password", email:"john@smith.com", countryID:1, wbIDs:nil);
  *  @endcode
  *  @param  firstName  Users first name
  *  @param  lastNAme   Users last name
@@ -257,7 +257,7 @@
  *  @brief  Initial setup of SDK. This should be the first call to gain access to the SDK.
  *  Swift example call:
  *  @code
- *  GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+ *  GAPI.Instance().Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
  *  @endcode
  *  @param  clientID      String id of developers client ID
  *  @param  clientSecret  String of developers secret

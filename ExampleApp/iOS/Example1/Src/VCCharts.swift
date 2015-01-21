@@ -46,7 +46,7 @@ class VCCharts: UIViewController, GAPIProtocol, UIWebViewDelegate
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        GAPI.Instance()?.SetCallbacks(self);
+        GAPI.Instance().SetCallbacks(self);
         
         //Setup example chart
         var baseUrl  = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath);

@@ -58,7 +58,7 @@ class VCProfile: UIViewController, GAPIProtocol, UIPickerViewDelegate, UIPickerV
         super.viewWillAppear(animated)
         
         //Set callbacks to this instance
-        GAPI.Instance()?.SetCallbacks(self);
+        GAPI.Instance().SetCallbacks(self);
         
         //Update screen with stored user details
         UpdateDetails();
@@ -104,9 +104,9 @@ class VCProfile: UIViewController, GAPIProtocol, UIPickerViewDelegate, UIPickerV
     {
         if(pickerView == pkCountry)
         {
-            if(GAPI.Instance()?.countries != nil && GAPI.Instance()?.countries.count > 200 && !countryChanged)
+            if(GAPI.Instance().countries != nil && GAPI.Instance().countries.count > 200 && !countryChanged)
             {
-                return GAPI.Instance()!.countries.count;
+                return GAPI.Instance().countries.count;
             }
         }
         
@@ -119,9 +119,9 @@ class VCProfile: UIViewController, GAPIProtocol, UIPickerViewDelegate, UIPickerV
         if(pickerView == pkCountry)
         {
             //Show country name else 'Downloading...' if still downloading from server
-            if(GAPI.Instance()?.countries != nil && GAPI.Instance()?.countries.count > 200 && !countryChanged)
+            if(GAPI.Instance().countries != nil && GAPI.Instance().countries.count > 200 && !countryChanged)
             {
-                return GAPI.Instance()!.countries[row] as NSString;
+                return GAPI.Instance().countries[row] as NSString;
             }
             else
             {
@@ -146,16 +146,16 @@ class VCProfile: UIViewController, GAPIProtocol, UIPickerViewDelegate, UIPickerV
         var countryID = pkCountry.selectedRowInComponent(0);
         var countryName = "Scotland";
         
-        if(GAPI.Instance()?.countries != nil && GAPI.Instance()?.countries.count > 200)
+        if(GAPI.Instance().countries != nil && GAPI.Instance().countries.count > 200)
         {
-            countryName = GAPI.Instance()?.countries[countryID] as NSString;
+            countryName = GAPI.Instance().countries[countryID] as NSString;
         }
      
         // If user profile info changed then send to user
-        if(firstName != GAPI.Instance()!.userFirstName || lastName != GAPI.Instance()!.userLastName  ||
-           phoneNumber != GAPI.Instance()!.userPhoneNumber || countryName != GAPI.Instance()!.userCountry )
+        if(firstName != GAPI.Instance().userFirstName || lastName != GAPI.Instance().userLastName  ||
+           phoneNumber != GAPI.Instance().userPhoneNumber || countryName != GAPI.Instance().userCountry )
         {
-            GAPI.Instance()?.PostProfile(firstName, lastName:lastName, phoneNumber:phoneNumber, country:Int32(countryID+1));
+            GAPI.Instance().PostProfile(firstName, lastName:lastName, phoneNumber:phoneNumber, country:Int32(countryID+1));
         }
         else
         {
@@ -178,22 +178,22 @@ class VCProfile: UIViewController, GAPIProtocol, UIPickerViewDelegate, UIPickerV
     //Update onscreen user details if SDK has valid values for
     func UpdateDetails()
     {
-        if(GAPI.Instance()?.userFirstName != nil && !firstNameChanged)
+        if(GAPI.Instance().userFirstName != nil && !firstNameChanged)
         {
-            tfFirstName.text = GAPI.Instance()?.userFirstName;
+            tfFirstName.text = GAPI.Instance().userFirstName;
         }
-        if(GAPI.Instance()?.userLastName != nil && !lastNameChanged)
+        if(GAPI.Instance().userLastName != nil && !lastNameChanged)
         {
-            tfLastName.text = GAPI.Instance()?.userLastName;
+            tfLastName.text = GAPI.Instance().userLastName;
         }
-        if(GAPI.Instance()?.userPhoneNumber != nil && !phoneNumberChanged)
+        if(GAPI.Instance().userPhoneNumber != nil && !phoneNumberChanged)
         {
-            tfPhoneNumber.text = GAPI.Instance()?.userPhoneNumber;
+            tfPhoneNumber.text = GAPI.Instance().userPhoneNumber;
         }
-        if(GAPI.Instance()?.countries != nil && GAPI.Instance()?.countries.count > 200 && !countryChanged)
+        if(GAPI.Instance().countries != nil && GAPI.Instance().countries.count > 200 && !countryChanged)
         {
             pkCountry.reloadAllComponents();
-            var id:Int = Int(GAPI.Instance()!.GetUserCountryID())-1;
+            var id:Int = Int(GAPI.Instance().GetUserCountryID())-1;
             pkCountry.selectRow(id, inComponent: 0, animated: true);
         }
     }

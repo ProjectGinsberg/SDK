@@ -60,7 +60,7 @@ class VCPost: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         super.viewDidLoad();
         
         //Set callbacks to this instance
-        GAPI.Instance()?.SetCallbacks(self);
+        GAPI.Instance().SetCallbacks(self);
         
         //Hide busy indicator
         SetBusy(false);

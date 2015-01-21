@@ -59,7 +59,7 @@ class VCLogin: UIViewController, GAPIProtocol
         super.viewWillAppear(animated)
     
         //Initial SDK setup
-        GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+        GAPI.Instance().Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
     }
     
     
@@ -77,14 +77,14 @@ class VCLogin: UIViewController, GAPIProtocol
     @IBAction func pressedSignupWeb(sender: UIButton)
     {
         //Start web signup popover
-        GAPI.Instance()!.SignUpWeb();
+        GAPI.Instance().SignUpWeb();
     }
     
     
     @IBAction func pressedLogin(sender: UIButton)
     {
         //Start SDK login process
-        GAPI.Instance()!.Login();
+        GAPI.Instance().Login();
     }
     
     
