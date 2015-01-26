@@ -161,7 +161,7 @@ The calls to post the required data are [listed here](docs/posts.md) with the fo
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] PostActivity:timeStamp start:timeStart end:timeEnd dist:distance cal:calories steps:Int32(stepCount)];
+    [[GAPI Instance] PostActivity:timeStamp start:timeStart end:timeEnd dist:distance cal:calories steps:Int32(stepCount)];
     ```
     ```swift
     //Swift
@@ -182,7 +182,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteActivity:12345];
+    [[GAPI Instance] DeleteActivity:12345];
     ```
     ```swift
     //Swift
