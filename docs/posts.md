@@ -18,7 +18,6 @@ The calls to post the required data are as follows:
     GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
     ```
 
-
 GAPI.Instance().PostBody(weight, fat, timeStamp);
 GAPI.Instance().PostCaffeine(ef, timeStamp);
 GAPI.Instance().PostSmoking(ei, timeStamp);

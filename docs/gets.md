@@ -38,7 +38,6 @@ The calls to get the required data are as follows:
     GAPI.Instance().GetActivity(range, typeFrom, dateFrom, typeTo, dateTo, ID);
     ```
     
-    
 GAPI.Instance().GetCorrelations();
 GAPI.Instance().GetDailySummary(period,typeFrom,dateFrom,typeTo,dateTo);
 GAPI.Instance().GetProfile();
