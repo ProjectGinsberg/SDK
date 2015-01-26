@@ -27,7 +27,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteActivity:12345];
+    [[GAPI Instance] DeleteActivity:12345];
     ```
     ```swift
     //Swift
@@ -43,7 +43,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteAlcohol:12345];
+    [[GAPI Instance] DeleteAlcohol:12345];
     ```
     ```swift
     //Swift
@@ -59,7 +59,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteBody:12345];
+    [[GAPI Instance] DeleteBody:12345];
     ```
     ```swift
     //Swift
@@ -75,7 +75,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteCaffeine:12345];
+    [[GAPI Instance] DeleteCaffeine:12345];
     ```
     ```swift
     //Swift
@@ -91,7 +91,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteEvents:12345];
+    [[GAPI Instance] DeleteEvents:12345];
     ```
     ```swift
     //Swift
@@ -107,7 +107,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteExercise:12345];
+    [[GAPI Instance] DeleteExercise:12345];
     ```
     ```swift
     //Swift
@@ -123,7 +123,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteNotification:12345];
+    [[GAPI Instance] DeleteNotification:12345];
     ```
     ```swift
     //Swift
@@ -139,7 +139,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteNutrition:12345];
+    [[GAPI Instance] DeleteNutrition:12345];
     ```
     ```swift
     //Swift
@@ -155,7 +155,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteSleep:12345];
+    [[GAPI Instance] DeleteSleep:12345];
     ```
     ```swift
     //Swift
@@ -171,7 +171,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteSmoking:12345];
+    [[GAPI Instance] DeleteSmoking:12345];
     ```
     ```swift
     //Swift
@@ -187,7 +187,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteSocial:12345];
+    [[GAPI Instance] DeleteSocial:12345];
     ```
     ```swift
     //Swift
@@ -203,7 +203,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteStepcount:12345];
+    [[GAPI Instance] DeleteStepcount:12345];
     ```
     ```swift
     //Swift
@@ -219,7 +219,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] DeleteWellbeing:12345];
+    [[GAPI Instance] DeleteWellbeing:12345];
     ```
     ```swift
     //Swift
