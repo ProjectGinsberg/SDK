@@ -18,19 +18,19 @@ The calls to post the required data are as follows:
     GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
     ```
 
-GAPI.Instance().PostBody(weight, fat, timeStamp);
-GAPI.Instance().PostCaffeine(ef, timeStamp);
-GAPI.Instance().PostSmoking(ei, timeStamp);
-GAPI.Instance().PostStepcount(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
-GAPI.Instance().PostSocial(timeStamp);
-GAPI.Instance().PostNutrition(calories, carbohydrates, fat, fiber, protein, sugar, timeStamp);
-GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
-GAPI.Instance().PostAlcohol(timeStamp, ef);
-GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
-GAPI.Instance().PostSleep(timeStamp, timesAwoken, awake, lightSleep, remSleep, deepSleep, totalSleep, 5);
 
-GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
-GAPI.Instance().PostWellbeing(ei, timeStamp, "I've been interested in new things", 10/*wellbeingType*/);
-GAPI.Instance().PostProfile("Bill", "Ben", "12345", 1); }
+* GAPI.Instance().PostBody(weight, fat, timeStamp);
+* GAPI.Instance().PostCaffeine(ef, timeStamp);
+* GAPI.Instance().PostSmoking(ei, timeStamp);
+* GAPI.Instance().PostStepcount(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+* GAPI.Instance().PostSocial(timeStamp);
+* GAPI.Instance().PostNutrition(calories, carbohydrates, fat, fiber, protein, sugar, timeStamp);
+* GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+* GAPI.Instance().PostAlcohol(timeStamp, ef);
+* GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
+* GAPI.Instance().PostSleep(timeStamp, timesAwoken, awake, lightSleep, remSleep, deepSleep, totalSleep, 5);
 
-        
+
+* GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+* GAPI.Instance().PostWellbeing(ei, timeStamp, "I've been interested in new things", 10/*wellbeingType*/);
+* GAPI.Instance().PostProfile("Bill", "Ben", "12345", 1); }
