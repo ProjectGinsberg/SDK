@@ -386,7 +386,7 @@ class VCPost: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
             case "Nutrition": GAPI.Instance().PostNutrition(timeStamp, calories:calories, carbohydrates:carbohydrates, fat:fat, fiber:fiber, protein:protein, sugar:sugar); break;
             case "Activity": GAPI.Instance().PostActivity(timeStamp, start:timeStart, end:timeEnd, dist:distance, cal:calories, steps:Int32(stepCount)); break;
             case "Alcohol": GAPI.Instance().PostAlcohol(timeStamp, units:ed); break;
-            case "Events": GAPI.Instance().PostEvent(timeStamp, event:"Todays event string", ID:GAPI.Instance()!.todaysEventID); break;
+            case "Events": GAPI.Instance().PostEvent(timeStamp, event:"Todays event string", ID:GAPI.Instance().todaysEventID); break;
             case "Sleep": GAPI.Instance().PostSleep(timeStamp, timesAwoken:Int32(timesAwoken), awake:Double(awake), lightSleep:Double(lightSleep), remSleep:Double(remSleep), deepSleep:Double(deepSleep), totalSleep:Double(totalSleep), quality:Int32(10)); break;
             //case "Survey": GAPI.Instance().PostSurvey(1234); break;
             
