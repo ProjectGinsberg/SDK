@@ -33,6 +33,15 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 ### iOS
 1. Clone or download the SDK, which consists of header files, release notes, and a static library. It also includes an example app.
 2. Add the `libs/iOS` directory (containing GAPI.h and libGAPI.a) to your Xcode project.
+3. Implement a class that uses GAPIProtocol. This will provide the callbacks form calls to the SDK. See example app for reference, as well as reading the rest of this document.
+4. During the usual program run, as long as you have the right credentials and valid account as mentioned below, you will pass your GAPIProtocol instance to a setup call of the GAPI singleton, as in 'Login' below, then you can start using the SDK for pushing/getting/deletes.
+
+### Android
+1. Clone or download the SDK, which consists of header files, release notes, and a static library. It also includes an example app.
+2. Add the `libs/Android/GAPI.aar` library to your Android project.
+3. Implement a class that uses IGAPICallbacks. This will provide the callbacks form calls to the SDK. See example app for reference, as well as reading the rest of this document.
+4. During the usual program run, as long as you have the right credentials and valid account as mentioned below, you will pass your GAPIProtocol instance to a setup call of the GAPI singleton, as in 'Login' below, then you can start using the SDK for pushing/getting/deletes.
+
 
 ## Credentials
 
@@ -126,7 +135,7 @@ Getting users data from the system is done via single calls to the SDK, which, i
     GAPI.Instance().GetActivity("All", "Yesterday", null, "Yesterday", null, ID);
     ```
 
-The calls are get the required data are as follows:
+The calls are get the required data are  [listed here](gets.md) with the following as an example:
 * **Activity -** Get the users activity for a given period.
 
     ```obj-c
@@ -142,11 +151,12 @@ The calls are get the required data are as follows:
     GAPI.Instance().GetActivity(range, typeFrom, dateFrom, typeTo, dateTo, ID);
     ```
     
+    
 ###Post Data
 
 As with getting data, posting users data to the system is done via single calls to the SDK, which, if logged in and successful, will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
 
-The calls to post the required data are as follows:
+The calls to post the required data are [listed here](posts.md) with the following as an example:
 * **Activity -** Post the users details of a given activity.
 
     ```obj-c
@@ -162,11 +172,12 @@ The calls to post the required data are as follows:
     GAPI.Instance().PostActivity(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
     ```
 
+    
 ###Delete Data
 
 The final common method is Delete for deleting a single identified record of users data from the system as done via single calls to the SDK. If logged in and successful, the system will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
 
-The calls to delete the required data all have a single parameter of the Int ID value of the required record to delete and are as follows:
+The calls to delete the required data all have a single parameter of the Int ID value of the required record to delete and are [listed here](deletes.md) with the following as an example:
 * **Activity -** Delete a particular record of users activity.
 
     ```obj-c
