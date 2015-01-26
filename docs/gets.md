@@ -39,22 +39,22 @@ The calls to get the required data are as follows:
     ```
     
     
-GAPI.Instance().GetCorrelations(); }
-GAPI.Instance().GetDailySummary(period,typeFrom,dateFrom,typeTo,dateTo); }
-GAPI.Instance().GetProfile(); }
-GAPI.Instance().GetTag(period,typeFrom,dateFrom,typeTo,dateTo); }
-GAPI.Instance().GetNotifications(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetActivity(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetAlcohol(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetNutrition(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetSleep(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetBody(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetCaffeine(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetSmoking(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetStepcount(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetExercise(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetSocial(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetEvents(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetMeasures(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetWellbeing(period,typeFrom,dateFrom,typeTo,dateTo,id); }
-GAPI.Instance().GetSurvey(period,typeFrom,dateFrom,typeTo,dateTo,id); }
+GAPI.Instance().GetCorrelations();
+GAPI.Instance().GetDailySummary(period,typeFrom,dateFrom,typeTo,dateTo);
+GAPI.Instance().GetProfile();
+GAPI.Instance().GetTag(period,typeFrom,dateFrom,typeTo,dateTo);
+GAPI.Instance().GetNotifications(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetActivity(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetAlcohol(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetNutrition(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetSleep(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetBody(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetCaffeine(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetSmoking(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetStepcount(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetExercise(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetSocial(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetEvents(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetMeasures(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetWellbeing(period,typeFrom,dateFrom,typeTo,dateTo,id);
+GAPI.Instance().GetSurvey(period,typeFrom,dateFrom,typeTo,dateTo,id);
