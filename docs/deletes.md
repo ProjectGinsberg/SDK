@@ -2,6 +2,8 @@
 
 The final common method is Delete for deleting a single identified record of users data from the system as done via single calls to the SDK. If logged in and successful, the system will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
 
+The calls to delete the required data all have a single parameter of the Int ID value of the required record to delete and are as follows:
+
 - [Activity](#activity)
 - [Alcohol](#alcohol)
 - [Body](#body)
@@ -16,9 +18,6 @@ The final common method is Delete for deleting a single identified record of use
 - [Step Count](#step-count)
 - [Wellbeing](#wellbeing) 
 
-
-
-The calls to delete the required data all have a single parameter of the Int ID value of the required record to delete and are as follows:
 * #####Activity
     Delete a particular record of users activity.
 
