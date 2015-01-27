@@ -1,6 +1,3 @@
-## Delete data
-
-
 ## Delete Data
 
 The final common method is Delete for deleting a single identified record of users data from the system as done via single calls to the SDK. If logged in and successful, the system will send back confirmation to the `Comment` method. If a fault occurs, then a call to `CommentError` will be made.
