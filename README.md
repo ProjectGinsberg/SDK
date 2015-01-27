@@ -11,6 +11,7 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 - [Signup](#signup)
 - [Callbacks](#callbacks)
 - [Login](#login)
+- [Time Stamps](#time-stamps)
 - [Get Data](#get-data)
 - [Post Data](#post-data)
 - [Delete Data](#delete-data)
@@ -210,6 +211,40 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     GAPI.Instance().Login();
     ```
     
+###Time Stamps
+
+1. When getting and posting data, time stamps are used to specify periods. These are simply strings of time, but which follow a particular format. To assist in using the correct one, the SDK has a few static methods for generating these, as shown below:
+
+    ```obj-c
+    //Obj-c    
+	/**
+	 *  @brief  Get the current string of date time for today
+	 *  @note   Return example: 2015-01-19T10:31:55+0000
+	 */
+	+(NSString*) GetDateTime;
+
+	/**
+	 *  @brief  Get the current string of date time for today + the days difference parameter
+	 *  @param  daysDifference  The days difference, from today, to get string for
+	 *  @note   Return example: 2015-01-19T10:31:55+0000
+	 */
+	+(NSString*) GetDateTime:(NSInteger)daysDifference;
+
+	/**
+	 *  @brief  Get the current string of date time for the start of today + days difference parameter
+	 *  @param  daysDifference  The days difference, from today, to get string for
+	 *  @note   Return example: 2015-01-19T00:00:00+0000
+	 */
+	+(NSString*) GetDateTimeStart:(NSInteger)daysDifference;
+
+	/**
+	 *  @brief  Get the current string of date time for the end of today + days difference parameter
+	 *  @param  daysDifference  The days difference, from today, to get string for
+	 *  @note   Return example: 2015-01-19T23:59:59+0000
+	 */
+	+(NSString*) GetDateTimeEnd:(NSInteger)daysDifference;
+	```
+
 ###Get Data
 
 Getting users data from the system is done via single calls to the SDK, which, if logged in and successful, will send data back to the app via the callbacks `DataReceived` method. The get methods follow a standard format, with a set of parameters to define for what range of values to get back, of the type of data requested.  If a fault occurs, then a call to `CommentError` will be made. These values are as follows:
