@@ -25,7 +25,7 @@ The calls to post the required data are as follows:
 
     ```obj-c
     //Obj-c
-    [[GAPI.Instance] PostActivity:timeStamp start:timeStart end:timeEnd dist:distance cal:calories steps:Int32(stepCount)];
+    [[GAPI.Instance] PostActivity:@"2015-01-27T11:50:16+0000" start:@"2015-01-26T11:50:16+0000" end:@"2015-01-26T12:50:16+0000" dist:5.0 cal:1000.0 steps:10000];
     ```
     ```swift
     //Swift
@@ -38,37 +38,66 @@ The calls to post the required data are as follows:
 
 
 * #####Alcohol
+	Post the users details of a given alcohol.
+
+    ```obj-c
+    //Obj-c
+    [[GAPI.Instance] PostAlcohol:@"2015-01-27T11:50:16+0000" units:5.0];
+    ```
+    
 	GAPI.Instance().PostAlcohol(timeStamp, ef);
 
 * #####Body
-	GAPI.Instance().PostBody(weight, fat, timeStamp);
+	Post the users body details.
+
+    GAPI.Instance().PostBody(weight, fat, timeStamp);
 
 * #####Caffeine
-	GAPI.Instance().PostCaffeine(ef, timeStamp);
+	Post the users caffeine intake.
+
+    GAPI.Instance().PostCaffeine(ef, timeStamp);
 
 * #####Events
-	GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
+	Post the users details of a given event.
+
+    GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
 
 * #####Exercise
-	GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+	Post the users details of a given exercise.
+
+    GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
 
 * #####Nutrition
+	Post the users details of a given nutrition intake.
+
 	GAPI.Instance().PostNutrition(calories, carbohydrates, fat, fiber, protein, sugar, timeStamp);
 
 * #####Profile
+	Post the users profile details.
+
 	GAPI.Instance().PostProfile("Bill", "Ben", "12345", 1); }
 
 * #####Sleep
+	Post the users details of a given sleep period.
+
 	GAPI.Instance().PostSleep(timeStamp, timesAwoken, awake, lightSleep, remSleep, deepSleep, totalSleep, 5);
 
 * #####Smoking
+	Post a users smoking period.
+
 	GAPI.Instance().PostSmoking(ei, timeStamp);
 
 * #####Social
+	Post a users social activity.
+
 	GAPI.Instance().PostSocial(timeStamp);
 
 * #####Step Count
+	Post the users details of a given steps activity.
+
 	GAPI.Instance().PostStepcount(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
 
 * #####Wellbeing
+	Post the users details of a particular wellbeing data capture.
+
 	GAPI.Instance().PostWellbeing(ei, timeStamp, "I've been interested in new things", 10/*wellbeingType*/);

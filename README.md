@@ -7,9 +7,9 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 
 - [Requirements](#requirements)
 - [Add the SDK to Your Project](#add-the-sdk-to-your-project)
-- [Credentials](#credentials)
 - [Implementation Overview](#implementation-overview)
 - [Signup](#signup)
+- [Callbacks](#callbacks)
 - [Login](#login)
 - [Get Data](#get-data)
 - [Post Data](#post-data)
@@ -33,24 +33,17 @@ The Ginsberg Mobile SDK makes it easy to add Ginsberg data access to mobile apps
 ### iOS
 1. Clone or download the SDK, which consists of header files, release notes, and a static library. It also includes an example app.
 2. Add the `libs/iOS` directory (containing GAPI.h and libGAPI.a) to your Xcode project.
-3. Implement a class that uses GAPIProtocol. This will provide the callbacks from calls to the SDK. See example app for reference, as well as reading the rest of this document.
-4. During the usual program run, as long as you have the right credentials and valid account as mentioned below, you will pass your GAPIProtocol instance to a setup call of the GAPI singleton, as in 'Login' below, then you can start using the SDK for pushing/getting/deletes.
 
 ### Android
 1. Clone or download the SDK, which consists of header files, release notes, and a static library. It also includes an example app.
 2. Add the `libs/Android/GAPI.aar` library to your Android project.
-3. Implement a class that uses IGAPICallbacks. This will provide the callbacks from calls to the SDK. See example app for reference, as well as reading the rest of this document.
-4. During the usual program run, as long as you have the right credentials and valid account as mentioned below, you will pass your GAPIProtocol instance to a setup call of the GAPI singleton, as in 'Login' below, then you can start using the SDK for pushing/getting/deletes.
 
-
-## Credentials
-
+## Implementation Overview
 Your will require different `client_id` and `client_secret` values for each application you develop using the SDK. You can obtain these Ginsberg API credentials by visiting the [Applications page on the Ginsberg Developer site](https://platform.ginsberg.io/app) and logging in with your Ginsberg account. Register as a developer, if not done already, and select new app. The page will then show you the client_id and client_secret strings to embed into your application.
 
-##Implementation Overview
-To setup getting data in and out of Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the GAPIProtocol interface and pass an instance off it to the SDK.
+To setup getting data in and out of Ginsberg, the user must first create an account, if not already done through the website. Then they must go through the SDKs login process once, before the SDK can then be used for posting and getting data. The SDK can also be used to delete individual records of the user. To get data back from the SDK server calls, implement the correct interface, (GAPIProtocol for iOS, IGAPICallbacks for Android), and pass an instance off it to the SDK either during the `Setup` call or via 'SetCallbacks' during the SDKs general use. 
 
-###Signup
+### Signup
 
 1. Signup can either be done via a popover webview, else via a single api call. For the popover webview call the `SignUpWeb` method as below. For the single api call call the `SignUp` method as below, with something for a first name, last name, password, confirmation of password, email address, country code, and selected wellbeing questions. Only passwords and email address are required to be valid, as shown in the example, to reduce initial signup time. The other data can be updated at a later stage once the user is logged in. 
 
@@ -79,6 +72,112 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     GAPI.Instance().SignUp("Please", "Replace", "password", "password", "john@example.com", 1, null);
     ```
     
+###Callbacks
+
+1. To get data back from the SDK use the interface GAPIProtocol (for iOS), or IGAPICallbacks (for Android). An instance of it should be given during the initial 'Setup' call. If the callback instance changes at a later stage, the instance can be updated with the 'SetCallbacks' method. See [Login](#login) for the Setup method details. See below for the SetCallbacks method.
+
+    ```obj-c
+    //Obj-c
+    [[GAPI Instance] SetCallbacks:self];
+    ```
+    ```swift
+    //Swift
+    GAPI.Instance().SetCallbacks(self);
+    ```
+    ```java
+    //Android
+    // The first parameter refers to the current active Activity, whilst the second if the instance with the callbacks interface. 
+    GAPI.Instance().SetCallbacks(this, this);
+    ```
+
+ The callback structure is as follows:
+
+    ```obj-c
+    //Obj-c    
+    @protocol GAPIProtocol <NSObject>
+	
+	/** 
+ 	 *  @brief       Callback for comments from sdk
+ 	 *  @details     When the system has simple messages to pass back to system, they will be sent here for either ignoring or displaying to user.
+ 	 *  @param text  Text of comment.
+ 	 */
+	-(void)Comment:(NSString*)text;
+
+	/**
+ 	 *  @brief       Callback for when app has access
+ 	 *  @details     After the SDK is initialized and finds no valid user login details, else a connection fault, this method will be called
+ 	 */
+	-(void)NeedLogin;
+	
+	/**
+	 *  @brief       Callback for when app has access
+	 *  @details     After sdk setup, and the user has accepted access, this method will be called
+	 */
+	-(void)GainedAccess;
+	
+	/**
+	 *  @brief            Callback for when app receives data from the server
+	 *  @details          When ever the app requests data, this will be where valid returned data will be sent
+	 *  @param endPoint   Endpoint data was recieved from, e.g. "/v1/o/wellbeing"
+	 *  @param data       Date received from that end point
+	 *  @param string     Readable string version of data param
+	 */
+	-(void)DataReceived:(NSString*)endPoint withData:(NSDictionary*)data andString:(NSString*)string;
+	
+	/**
+	 *  @brief       Callback for when the sdk busy state has changed
+	 *  @details
+	 *  @param truth Truth of if sdk is currently busy doing something or not.
+	 */
+	-(void)SetBusy:(BOOL)truth;
+	
+	/**
+	 *  @brief       Callback for error messages from sdk
+	 *  @details     When the system has an error message to pass back to system, they will be sent here for either ignoring or displaying to user.
+	 *  @param text  Text of comment.
+	 */
+	-(void)CommentError:(NSString*)text;
+	
+	/**
+	 *  @brief       Callback for result messages from sdk //Not currently used
+	 *  @details     When the system has a result message to pass back to system, they will be sent here for either ignoring or displaying to user.
+	 *  @param text  Text of comment.
+	 */
+	-(void)CommentResult:(NSString*)text;
+	
+	/**
+	 *  @brief       Callback for system messages from sdk //Not currently used
+	 *  @details     When the system has a system derived message to pass back to system, they will be sent here for either ignoring or displaying to user.
+	 *  @param text  Text of comment.
+	 */
+	-(void)CommentSystem:(NSString*)text;
+
+	@end
+	```
+    
+    ```java
+    //Android
+    public interface IGAPICallbacks 
+    {
+    	void Comment(java.lang.String s);
+
+    	void NeedLogin();
+
+    	void GainedAccess();
+
+    	void DataReceived(java.lang.String s, org.json.JSONArray jsonArray);
+
+    	void SetBusy(boolean b);
+
+    	void CommentError(java.lang.String s);
+
+    	void CommentResult(java.lang.String s);
+
+    	void CommentSystem(java.lang.String s);
+	}
+    ```
+
+ 
 ###Login
 
 1. Call the setup method with the a valid client id, client secret and GAPIProtocol instance. On android there is an extra first parameter of current activity.
@@ -88,7 +187,7 @@ To setup getting data in and out of Ginsberg, the user must first create an acco
     ```
     ```swift
     //Swift
-    GAPI.Instance()!.Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
+    GAPI.Instance().Setup(CLIENT_ID, secret:CLIENT_SECRET, callbacks:self);
     ```
     ```java
     //Android
