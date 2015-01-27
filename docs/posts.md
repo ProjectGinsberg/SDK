@@ -17,8 +17,7 @@ The calls to post the required data are as follows:
 - [Smoking](#smoking)
 - [Social](#social)
 - [Step Count](#step-count)
-- [Wellbeing](#wellbeing) 
-
+- [Wellbeing](#wellbeing)
 
 
 * #####Activity

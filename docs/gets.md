@@ -40,8 +40,7 @@ The calls to get the required data are as follows:
 - [Smoking](#smoking)
 - [Social](#social)
 - [Step Count](#step-count)
-- [Wellbeing](#wellbeing) 
-
+- [Wellbeing](#wellbeing)
 
 
 * #####Activity
