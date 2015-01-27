@@ -42,6 +42,8 @@ The calls to get the required data are as follows:
 - [Step Count](#step-count)
 - [Wellbeing](#wellbeing) 
 
+
+
 * #####Activity
 	Get the users activity for a given range.
 

@@ -20,6 +20,7 @@ The calls to post the required data are as follows:
 - [Wellbeing](#wellbeing) 
 
 
+
 * #####Activity
 	Post the users details of a given activity.
 
@@ -38,26 +39,37 @@ The calls to post the required data are as follows:
 
 
 * #####Alcohol
-GAPI.Instance().PostAlcohol(timeStamp, ef);
+	GAPI.Instance().PostAlcohol(timeStamp, ef);
+
 * #####Body
-GAPI.Instance().PostBody(weight, fat, timeStamp);
+	GAPI.Instance().PostBody(weight, fat, timeStamp);
+
 * #####Caffeine
-GAPI.Instance().PostCaffeine(ef, timeStamp);
+	GAPI.Instance().PostCaffeine(ef, timeStamp);
+
 * #####Events
-GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
+	GAPI.Instance().PostEvents(timeStamp, "Todays event string", GAPI.Instance().todaysEventID );
+
 * #####Exercise
-GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+	GAPI.Instance().PostExercise(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+
 * #####Nutrition
-GAPI.Instance().PostNutrition(calories, carbohydrates, fat, fiber, protein, sugar, timeStamp);
+	GAPI.Instance().PostNutrition(calories, carbohydrates, fat, fiber, protein, sugar, timeStamp);
+
 * #####Profile
-GAPI.Instance().PostProfile("Bill", "Ben", "12345", 1); }
+	GAPI.Instance().PostProfile("Bill", "Ben", "12345", 1); }
+
 * #####Sleep
-GAPI.Instance().PostSleep(timeStamp, timesAwoken, awake, lightSleep, remSleep, deepSleep, totalSleep, 5);
+	GAPI.Instance().PostSleep(timeStamp, timesAwoken, awake, lightSleep, remSleep, deepSleep, totalSleep, 5);
+
 * #####Smoking
-GAPI.Instance().PostSmoking(ei, timeStamp);
+	GAPI.Instance().PostSmoking(ei, timeStamp);
+
 * #####Social
-GAPI.Instance().PostSocial(timeStamp);
+	GAPI.Instance().PostSocial(timeStamp);
+
 * #####Step Count
-GAPI.Instance().PostStepcount(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+	GAPI.Instance().PostStepcount(timeStart, timeEnd, distance, calories, stepCount, timeStamp);
+
 * #####Wellbeing
-GAPI.Instance().PostWellbeing(ei, timeStamp, "I've been interested in new things", 10/*wellbeingType*/);
+	GAPI.Instance().PostWellbeing(ei, timeStamp, "I've been interested in new things", 10/*wellbeingType*/);

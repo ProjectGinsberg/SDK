@@ -19,6 +19,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 - [Wellbeing](#wellbeing) 
 
 
+
 * #####Activity
     Delete a particular record of users activity.
 
