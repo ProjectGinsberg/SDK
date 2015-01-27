@@ -18,6 +18,7 @@ The calls to delete the required data all have a single parameter of the Int ID 
 - [Step Count](#step-count)
 - [Wellbeing](#wellbeing) 
 
+
 * #####Activity
     Delete a particular record of users activity.
 

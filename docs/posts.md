@@ -19,6 +19,7 @@ The calls to post the required data are as follows:
 - [Step Count](#step-count)
 - [Wellbeing](#wellbeing) 
 
+
 * #####Activity
 	Post the users details of a given activity.
 
